@@ -84,5 +84,4 @@ public class MoneyView extends LinearLayout {
         mTenths.setTextSize(textSize);
         mHundredths.setTextSize(textSize);
     }
-
 }

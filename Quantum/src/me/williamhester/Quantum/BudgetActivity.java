@@ -64,8 +64,7 @@ public class BudgetActivity extends FragmentActivity implements
             mAction.setDisplayHomeAsUpEnabled(false);
             mAction.setDisplayShowCustomEnabled(true);
             mAction.setHomeButtonEnabled(true);
-
-            mAction.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+//            mAction.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
         }
 
         setUpBudgetDrawer();

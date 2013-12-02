@@ -21,7 +21,6 @@ import android.widget.TextView;
 public class BudgetPreferenceFragment extends PreferenceFragment {
 
     private long mId;
-
     private Preference mChangeName;
     private Preference mClearHistory;
     private Preference mManualReset;
