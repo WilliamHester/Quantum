@@ -4,39 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <!-- The main content view -->
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/main_layout"
-        android:orientation="vertical"
+    <FrameLayout
+        android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/gainsboro"
-        android:paddingLeft="8dp"
-        android:paddingRight="8dp"
-        android:paddingTop="8dp" >
-
-        <include layout="@layout/numbers_view"
-            android:id="@+id/budget_amount"/>
-
-        <View android:layout_width="match_parent"
-            android:layout_height="8dp" />
-
-        <include layout="@layout/two_buttons_view"
-            android:id="@+id/buttons_row" />
-
-        <View android:layout_width="match_parent"
-            android:layout_height="8dp" />
-
-        <ListView
-            android:background="@color/ghostwhite"
-            android:id="@+id/transactions"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:divider="@drawable/divider"
-            android:dividerHeight="1dp"
-            android:clickable="false">
-        </ListView>
-
-    </LinearLayout>
+        android:layout_height="match_parent" />
     <!-- The navigation drawer -->
     <ListView android:id="@+id/left_drawer"
         android:layout_width="240dp"

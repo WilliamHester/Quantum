@@ -86,36 +86,70 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="36" selection-start="369" selection-end="369" vertical-scroll-proportion="-4.76" vertical-offset="0" max-vertical-offset="918">
+            <state line="7" column="34" selection-start="307" selection-end="307" vertical-scroll-proportion="-4.76" vertical-offset="0" max-vertical-offset="425">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainActivity.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/me/williamhester/Quantum/MainActivity.java">
+      <file leaf-file-name="BudgetActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/me/williamhester/Quantum/BudgetActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="354" column="49" selection-start="13672" selection-end="13683" vertical-scroll-proportion="0.48377582" vertical-offset="5854" max-vertical-offset="7123">
+            <state line="124" column="17" selection-start="4517" selection-end="4517" vertical-scroll-proportion="0.0" vertical-offset="2328" max-vertical-offset="3060">
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3681#3701#0" expanded="true" />
-                <element signature="e#3703#3724#0" expanded="true" />
-                <element signature="e#4187#4214#0" expanded="true" />
-                <element signature="e#8261#8879#0" expanded="true" />
-                <element signature="e#8872#8873#0" expanded="true" />
-                <element signature="e#8967#9802#0" expanded="true" />
-                <element signature="e#9795#9796#0" expanded="true" />
-                <element signature="e#10759#10886#0" expanded="true" />
-                <element signature="e#10875#10876#0" expanded="true" />
-                <element signature="e#10927#11054#0" expanded="true" />
-                <element signature="e#11043#11044#0" expanded="true" />
-                <element signature="e#11188#11591#0" expanded="true" />
-                <element signature="e#11580#11581#0" expanded="true" />
-                <element signature="e#11723#11872#0" expanded="true" />
-                <element signature="e#11861#11862#0" expanded="true" />
-                <element signature="e#13208#13756#0" expanded="true" />
-                <element signature="e#13745#13746#0" expanded="true" />
+                <element signature="e#2375#2395#0" expanded="true" />
+                <element signature="e#2397#2418#0" expanded="true" />
+                <element signature="e#2926#2953#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="budget_fragment_menu.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/menu/budget_fragment_menu.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="49" selection-start="420" selection-end="420" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="323">
+              <folding>
+                <element signature="e#174#199#0" expanded="true" />
+                <element signature="e#393#420#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BudgetFragment.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/me/williamhester/Quantum/BudgetFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="45" column="17" selection-start="1372" selection-end="1372" vertical-scroll-proportion="0.0" vertical-offset="640" max-vertical-offset="5236">
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#3890#4465#0" expanded="true" />
+                <element signature="e#4458#4459#0" expanded="true" />
+                <element signature="e#4527#5500#0" expanded="true" />
+                <element signature="e#5493#5494#0" expanded="true" />
+                <element signature="e#6449#6546#0" expanded="true" />
+                <element signature="e#6530#6531#0" expanded="true" />
+                <element signature="e#6584#6706#0" expanded="true" />
+                <element signature="e#6695#6696#0" expanded="true" />
+                <element signature="e#6840#7239#0" expanded="true" />
+                <element signature="e#7228#7229#0" expanded="true" />
+                <element signature="e#7371#7515#0" expanded="true" />
+                <element signature="e#7504#7505#0" expanded="true" />
+                <element signature="e#7598#8703#0" expanded="true" />
+                <element signature="e#8692#8693#0" expanded="true" />
+                <element signature="e#8777#9305#0" expanded="true" />
+                <element signature="e#9294#9295#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ContainerActivity.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/me/williamhester/Quantum/ContainerActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="4" selection-start="162" selection-end="162" vertical-scroll-proportion="0.408" vertical-offset="0" max-vertical-offset="375">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -379,6 +413,11 @@
                 <option name="name" value="preTestBuild" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
+                <option name="description" value="Prepare com.android.support:appcompat-v7:19.0.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComAndroidSupportAppcompatV71900Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="prepareDebugDependencies" />
               </ExternalTaskPojo>
@@ -463,6 +502,7 @@
     <option name="modificationStamps">
       <map>
         <entry key="$PROJECT_DIR$" value="1383784896361" />
+        <entry key="C:\Users\William\Documents\GitHub\Quantum\Quantum" value="1385937018368" />
         <entry key="D:\workspace\Quantum" value="1383798350854" />
       </map>
     </option>
@@ -478,11 +518,14 @@
         <option value="$PROJECT_DIR$/src/me/williamhester/Quantum/BudgetPreferenceFragment.java" />
         <option value="$PROJECT_DIR$/src/me/williamhester/Quantum/NewBudgetDialog.java" />
         <option value="$PROJECT_DIR$/src/me/williamhester/Quantum/TransactionCreatorFragment.java" />
-        <option value="$PROJECT_DIR$/src/me/williamhester/Quantum/BudgetFragment.java" />
         <option value="$PROJECT_DIR$/src/me/williamhester/Quantum/BudgetLauncherFragment.java" />
         <option value="$PROJECT_DIR$/src/me/williamhester/Quantum/TransactionInfoFragment.java" />
         <option value="$PROJECT_DIR$/res/layout/container.xml" />
         <option value="$PROJECT_DIR$/src/me/williamhester/Quantum/MainActivity.java" />
+        <option value="$PROJECT_DIR$/res/menu/budget_fragment_menu.xml" />
+        <option value="$PROJECT_DIR$/src/me/williamhester/Quantum/BudgetActivity.java" />
+        <option value="$PROJECT_DIR$/src/me/williamhester/Quantum/BudgetFragment.java" />
+        <option value="$PROJECT_DIR$/src/me/williamhester/Quantum/ContainerActivity.java" />
       </list>
     </option>
   </component>
@@ -519,6 +562,7 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -555,23 +599,8 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Quantum" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Quantum" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -591,8 +620,15 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\William\Documents\GitHub\Quantum\Quantum\res\drawable-xxhdpi" />
+      <recent name="C:\Users\William\Documents\GitHub\Quantum\Quantum\res\drawable-xhdpi" />
+      <recent name="C:\Users\William\Documents\GitHub\Quantum\Quantum\res\drawable-mdpi" />
+      <recent name="C:\Users\William\Documents\GitHub\Quantum\Quantum\res\drawable-hdpi" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\workspace\Quantum\res\drawable-xxhdpi" />
       <recent name="D:\workspace\Quantum\res\drawable-xhdpi" />
@@ -629,6 +665,19 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -654,19 +703,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -798,27 +834,27 @@
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32852808" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943144" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32833335" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943144" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.325" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32833335" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32943144" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24166666" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32833335" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3277592" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32833335" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -839,10 +875,50 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/res/layout/container.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="36" selection-start="369" selection-end="369" vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="918">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/williamhester/Quantum/BudgetActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="354" column="49" selection-start="13672" selection-end="13683" vertical-scroll-proportion="0.0" vertical-offset="5854" max-vertical-offset="7123">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2375#2395#0" expanded="true" />
+            <element signature="e#2397#2418#0" expanded="true" />
+            <element signature="e#2926#2953#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/me/williamhester/Quantum/BudgetFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="104" column="21" selection-start="3290" selection-end="3290" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6018">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3890#4465#0" expanded="true" />
+            <element signature="e#4458#4459#0" expanded="true" />
+            <element signature="e#4527#5500#0" expanded="true" />
+            <element signature="e#5493#5494#0" expanded="true" />
+            <element signature="e#6449#6546#0" expanded="true" />
+            <element signature="e#6530#6531#0" expanded="true" />
+            <element signature="e#6584#6706#0" expanded="true" />
+            <element signature="e#6695#6696#0" expanded="true" />
+            <element signature="e#6840#7239#0" expanded="true" />
+            <element signature="e#7228#7229#0" expanded="true" />
+            <element signature="e#7371#7515#0" expanded="true" />
+            <element signature="e#7504#7505#0" expanded="true" />
+            <element signature="e#7598#8703#0" expanded="true" />
+            <element signature="e#8692#8693#0" expanded="true" />
+            <element signature="e#8777#9305#0" expanded="true" />
+            <element signature="e#9294#9295#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -860,28 +936,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/me/williamhester/Quantum/MainActivity.java">
+    <entry file="file://$PROJECT_DIR$/src/me/williamhester/Quantum/BudgetActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="41" column="43" selection-start="1518" selection-end="1518" vertical-scroll-proportion="0.0" vertical-offset="529" max-vertical-offset="3825">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3681#3701#0" expanded="true" />
-            <element signature="e#3703#3724#0" expanded="true" />
-            <element signature="e#4187#4214#0" expanded="true" />
-            <element signature="e#8261#8879#0" expanded="true" />
-            <element signature="e#8872#8873#0" expanded="true" />
-            <element signature="e#8967#9802#0" expanded="true" />
-            <element signature="e#9795#9796#0" expanded="true" />
-            <element signature="e#10759#10886#0" expanded="true" />
-            <element signature="e#10875#10876#0" expanded="true" />
-            <element signature="e#10927#11054#0" expanded="true" />
-            <element signature="e#11043#11044#0" expanded="true" />
-            <element signature="e#11188#11591#0" expanded="true" />
-            <element signature="e#11580#11581#0" expanded="true" />
-            <element signature="e#11723#11872#0" expanded="true" />
-            <element signature="e#11861#11862#0" expanded="true" />
-            <element signature="e#13208#13756#0" expanded="true" />
-            <element signature="e#13745#13746#0" expanded="true" />
+            <element signature="e#2375#2395#0" expanded="true" />
+            <element signature="e#2397#2418#0" expanded="true" />
+            <element signature="e#2926#2953#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1035,13 +1097,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/me/williamhester/Quantum/BudgetFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="244" column="39" selection-start="9223" selection-end="9223" vertical-scroll-proportion="0.32360741" vertical-offset="3244" max-vertical-offset="4437">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="27" selection-start="213" selection-end="213" vertical-scroll-proportion="0.4960212" vertical-offset="0" max-vertical-offset="867">
@@ -1069,39 +1124,81 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="646">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/menu/budget_launcher_menu.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="40" selection-start="236" selection-end="236" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="272">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/container.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="36" selection-start="369" selection-end="369" vertical-scroll-proportion="-4.76" vertical-offset="0" max-vertical-offset="918">
+        <state line="7" column="34" selection-start="307" selection-end="307" vertical-scroll-proportion="-4.76" vertical-offset="0" max-vertical-offset="425">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/me/williamhester/Quantum/MainActivity.java">
+    <entry file="file://$PROJECT_DIR$/res/menu/budget_fragment_menu.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="354" column="49" selection-start="13672" selection-end="13683" vertical-scroll-proportion="0.48377582" vertical-offset="5854" max-vertical-offset="7123">
+        <state line="9" column="49" selection-start="420" selection-end="420" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="323">
+          <folding>
+            <element signature="e#174#199#0" expanded="true" />
+            <element signature="e#393#420#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/williamhester/Quantum/BudgetActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="124" column="17" selection-start="4517" selection-end="4517" vertical-scroll-proportion="0.0" vertical-offset="2328" max-vertical-offset="3060">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3681#3701#0" expanded="true" />
-            <element signature="e#3703#3724#0" expanded="true" />
-            <element signature="e#4187#4214#0" expanded="true" />
-            <element signature="e#8261#8879#0" expanded="true" />
-            <element signature="e#8872#8873#0" expanded="true" />
-            <element signature="e#8967#9802#0" expanded="true" />
-            <element signature="e#9795#9796#0" expanded="true" />
-            <element signature="e#10759#10886#0" expanded="true" />
-            <element signature="e#10875#10876#0" expanded="true" />
-            <element signature="e#10927#11054#0" expanded="true" />
-            <element signature="e#11043#11044#0" expanded="true" />
-            <element signature="e#11188#11591#0" expanded="true" />
-            <element signature="e#11580#11581#0" expanded="true" />
-            <element signature="e#11723#11872#0" expanded="true" />
-            <element signature="e#11861#11862#0" expanded="true" />
-            <element signature="e#13208#13756#0" expanded="true" />
-            <element signature="e#13745#13746#0" expanded="true" />
+            <element signature="e#2375#2395#0" expanded="true" />
+            <element signature="e#2397#2418#0" expanded="true" />
+            <element signature="e#2926#2953#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/williamhester/Quantum/BudgetFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="17" selection-start="1372" selection-end="1372" vertical-scroll-proportion="0.0" vertical-offset="640" max-vertical-offset="5236">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3890#4465#0" expanded="true" />
+            <element signature="e#4458#4459#0" expanded="true" />
+            <element signature="e#4527#5500#0" expanded="true" />
+            <element signature="e#5493#5494#0" expanded="true" />
+            <element signature="e#6449#6546#0" expanded="true" />
+            <element signature="e#6530#6531#0" expanded="true" />
+            <element signature="e#6584#6706#0" expanded="true" />
+            <element signature="e#6695#6696#0" expanded="true" />
+            <element signature="e#6840#7239#0" expanded="true" />
+            <element signature="e#7228#7229#0" expanded="true" />
+            <element signature="e#7371#7515#0" expanded="true" />
+            <element signature="e#7504#7505#0" expanded="true" />
+            <element signature="e#7598#8703#0" expanded="true" />
+            <element signature="e#8692#8693#0" expanded="true" />
+            <element signature="e#8777#9305#0" expanded="true" />
+            <element signature="e#9294#9295#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/williamhester/Quantum/ContainerActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="4" selection-start="162" selection-end="162" vertical-scroll-proportion="0.408" vertical-offset="0" max-vertical-offset="375">
+          <folding />
         </state>
       </provider>
     </entry>

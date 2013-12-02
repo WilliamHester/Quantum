@@ -126,8 +126,8 @@ public class BudgetSetup extends Fragment {
 					data.createBudget(name, budget, budget, 0, interval,
 							Budget.getCurrentInterval(interval), subInterval);
 					data.close();
-					MainActivity.notFirstTime();
-					Intent i = new Intent(getActivity(), MainActivity.class);
+					BudgetActivity.notFirstTime();
+					Intent i = new Intent(getActivity(), BudgetActivity.class);
 					i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 					startActivity(i);
 				} else {
