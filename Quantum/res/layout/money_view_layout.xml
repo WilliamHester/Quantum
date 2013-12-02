@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal" >
+        <me.williamhester.Quantum.MoneyView
+            android:id="@+id/money_text"
+            android:layout_width="0dip"
+            android:layout_weight="4"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/medium_font_padding"
+            android:paddingBottom="@dimen/medium_font_padding"
+            android:paddingLeft="@dimen/timer_padding_left"
+            android:layout_gravity="center"
+            android:gravity="top|right" >
+            <TextView
+            	android:id="@+id/thousands"
+            	android:singleLine="true"
+            	android:layout_width="wrap_content"
+            	android:layout_height="wrap_content"
+            	style="@style/medium_light"
+            	android:textColor="@color/dark_gray"
+            	android:textIsSelectable="false" />
+        	<TextView
+            	android:id="@+id/hundreds"
+            	android:singleLine="true"
+            	android:layout_width="wrap_content"
+            	android:layout_height="wrap_content"
+            	style="@style/medium_light"
+            	android:textColor="@color/dark_gray"
+            	android:textIsSelectable="false" />
+           <TextView
+            	android:id="@+id/tens"
+            	android:singleLine="true"
+            	android:layout_width="wrap_content"
+            	android:layout_height="wrap_content"
+            	style="@style/medium_light"
+            	android:textColor="@color/dark_gray"
+            	android:textIsSelectable="false"/>
+            <TextView
+            	android:id="@+id/ones"
+            	android:singleLine="true"
+            	android:layout_width="wrap_content"
+            	android:layout_height="wrap_content"
+            	style="@style/medium_light"
+            	android:textColor="@color/dark_gray"
+            	android:textIsSelectable="false"/>
+            <TextView
+            	android:id="@+id/decimal"
+            	android:singleLine="true"
+            	android:layout_width="wrap_content"
+            	android:layout_height="wrap_content"
+            	style="@style/medium_light"
+            	android:textColor="@color/dark_gray"
+            	android:text="@string/decimal"
+            	android:textIsSelectable="false"/>
+            <TextView
+            	android:id="@+id/tenths"
+            	android:singleLine="true"
+            	android:layout_width="wrap_content"
+            	android:layout_height="wrap_content"
+            	style="@style/medium_light"
+            	android:textColor="@color/dark_gray"
+            	android:textIsSelectable="false"/>
+            <TextView
+            	android:id="@+id/hundredths"
+            	android:singleLine="true"
+            	android:layout_width="wrap_content"
+            	android:layout_height="wrap_content"
+            	style="@style/medium_light"
+            	android:textColor="@color/dark_gray"
+            	android:textIsSelectable="false" />
+        </me.williamhester.Quantum.MoneyView>
+        <ImageButton
+            android:id="@+id/delete"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:paddingBottom="@dimen/body_font_padding"
+            android:src="@drawable/ic_backspace"
+            android:background="@drawable/item_background_orange"
+            android:contentDescription="@string/delete"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:layout_marginBottom="8dip"
+        android:background="@color/mid_gray" />
+    <include layout="@layout/three_keys_view"
+        android:id="@+id/first" />
+
+    <include layout="@layout/three_keys_view"
+        android:id="@+id/second"/>
+
+    <include layout="@layout/three_keys_view"
+        android:id="@+id/third"/>
+
+    <include layout="@layout/three_keys_view"
+        android:id="@+id/fourth" />
+</LinearLayout>

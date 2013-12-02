@@ -1,0 +1,47 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+    <Preference
+        android:key="pref_change_name"
+        android:persistent="false"
+        android:title="@string/pref_change_name"
+        android:summary="@string/pref_change_name_summary"/>
+    <Preference
+        android:key="pref_clear_history"
+        android:persistent="false"
+        android:title="@string/pref_clear_history"
+        android:summary="@string/pref_summary_clear_history" />
+    <Preference
+        android:key="pref_clear_surplus"
+        android:persistent="false"
+        android:title="@string/pref_clear_surplus"
+        android:summary="@string/pref_summary_clear_surplus" />
+    <Preference
+        android:key="pref_change_budget_amount"
+        android:persistent="false"
+        android:title="@string/pref_change_budget_amount"
+        android:summary="@string/pref_summary_change_budget_amount" />
+    <ListPreference
+        android:key="pref_change_reset_type"
+        android:entries="@array/budget_type"
+        android:entryValues="@array/budget_type_values"
+        android:persistent="false"
+        android:title="@string/pref_change_reset_type"
+        android:summary="@string/pref_summary_change_reset_type" />
+    <ListPreference
+        android:key="pref_change_reset_date"
+        android:entries="@array/days_of_week"
+        android:entryValues="@array/days_of_week_values"
+        android:persistent="false"
+        android:title="@string/pref_change_reset_date"
+        android:summary="@string/pref_summary_change_reset_date" />
+    <Preference
+        android:key="pref_change_day_of_month"
+        android:persistent="false"
+        android:title="@string/pref_change_day_of_month"
+        android:summary="@string/pref_change_day_of_month_summary" />
+    <Preference
+        android:key="pref_manual_reset"
+        android:persistent="false"
+        android:title="@string/pref_manual_reset"
+        android:summary="@string/pref_summary_manual_reset" />
+
+</PreferenceScreen>

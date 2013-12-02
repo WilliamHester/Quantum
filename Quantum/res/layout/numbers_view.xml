@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/money"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp"
+    android:background="@color/ghostwhite">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:foregroundGravity="center"
+        android:layout_gravity="center">
+
+        <TextView android:id="@+id/dollars_view_red"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:clickable="true"
+                  android:textIsSelectable="false"
+                  android:gravity="center"
+                  android:textSize="80sp"
+                  android:text="100"
+                  android:textColor="@color/red"/>
+
+        <TextView android:id="@+id/cents_view_red"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:clickable="true"
+                  android:textIsSelectable="false"
+                  android:gravity="center"
+                  android:textSize="80sp"
+                  android:text=".00"
+                  android:textColor="@color/red" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:foregroundGravity="center"
+        android:layout_gravity="center">
+
+        <TextView android:id="@+id/dollars_view"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:clickable="true"
+                  android:textIsSelectable="false"
+                  android:gravity="center"
+                  android:textSize="80sp"
+                  android:text="100"
+                  android:textColor="@color/dark_green"/>
+
+        <TextView android:id="@+id/cents_view"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:clickable="true"
+                  android:textIsSelectable="false"
+                  android:gravity="center"
+                  android:textSize="80sp"
+                  android:text=".00"
+                  android:textColor="@color/dark_green"/>
+
+    </LinearLayout>
+</FrameLayout>
