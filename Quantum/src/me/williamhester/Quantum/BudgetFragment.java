@@ -48,9 +48,6 @@ class BudgetFragment extends Fragment {
             // Need to find something to do if a budget is not selected.
         }
 
-        String nullstring = null;
-        nullstring.charAt(0);
-
 		BudgetDataSource data = new BudgetDataSource(getActivity());
 		data.open();
 		mBudget = data.getBudgetFromId(id);
@@ -61,7 +58,7 @@ class BudgetFragment extends Fragment {
 		mTransactions = trans.getAllTransactionsReverse();
 		trans.close();
 
-        if (getActivity().getActionBar() != null) {
+        if (getActivity() != null && getActivity().getActionBar() != null) {
             getActivity().getActionBar().setDisplayHomeAsUpEnabled(true);
             getActivity().getActionBar().setTitle(mBudget.toString());
         }
@@ -76,7 +73,8 @@ class BudgetFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.budget_fragment_2, container, false);
+		View view;
+        view = inflater.inflate(R.layout.budget_fragment_2, container, false);
 
         mList = (ListView) view.findViewById(R.id.transactions);
         mNumbersHeader = view.findViewById(R.id.budget_amount);
@@ -98,16 +96,15 @@ class BudgetFragment extends Fragment {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
         switch (item.getItemId()) {
             case android.R.id.home:
-//                getActivity().getActionBar()
+
                 return true;
             case R.id.budget_management:
-//                BudgetPreferenceFragment fragment2 = new BudgetPreferenceFragment(mBudget);
-//                getFragmentManager().beginTransaction()
-//                        .replace(R.id.frame_container, fragment2)
-//                        .commit();
+                BudgetPreferenceFragment fragment2 = new BudgetPreferenceFragment(mBudget);
+                getFragmentManager().beginTransaction().addToBackStack("BudgetFragment")
+                        .replace(R.id.container, fragment2)
+                        .commit();
                 return true;
             default:
                 return false;
@@ -153,12 +150,11 @@ class BudgetFragment extends Fragment {
 
                 StatisticsFragment fragment = new StatisticsFragment();
                 Bundle args = new Bundle();
-                args.putInt(MainActivity.POSITION_NUMBER,
-                        getArguments().getInt(MainActivity.POSITION_NUMBER));
+                args.putInt(BudgetActivity.POSITION_NUMBER,
+                        getArguments().getInt(BudgetActivity.POSITION_NUMBER));
                 fragment.setArguments(args);
-//                getFragmentManager().beginTransaction()
-//                        .replace(R.id.frame_container, fragment)
-//                        .commit();
+                getFragmentManager().beginTransaction().addToBackStack("BudgetFragment")
+                        .replace(R.id.container, fragment).commit();
             }
         }
     };
@@ -172,7 +168,8 @@ class BudgetFragment extends Fragment {
 
 	public void editBudget() {
     	FragmentManager fm = getFragmentManager();
-        MoneyPickerDialogFragment moneyPicker = new MoneyPickerDialogFragment(true, mMoneySpentListener);
+        MoneyPickerDialogFragment moneyPicker =
+                new MoneyPickerDialogFragment(true, mMoneySpentListener);
         moneyPicker.show(fm, "fragment_money_picker");
     }
 
@@ -201,9 +198,10 @@ class BudgetFragment extends Fragment {
         newTransaction.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                TransactionCreatorFragment fragment = new TransactionCreatorFragment(mBudget.getId());
-                FragmentManager fm = getFragmentManager();
-//                fm.beginTransaction().replace(R.id.frame_container, fragment).commit();
+                TransactionCreatorFragment fragment =
+                        new TransactionCreatorFragment(mBudget.getId());
+                getFragmentManager().beginTransaction().addToBackStack("BudgetFragment")
+                        .replace(R.id.container, fragment).commit();
             }
         });
         Button quickSpend = (Button) mButtonsHeader.findViewById(R.id.quick_spend_button);
@@ -241,17 +239,19 @@ class BudgetFragment extends Fragment {
                 TransactionCreatorFragment tranCreator
                         = new TransactionCreatorFragment(mBudget.getId(),
                         (Transaction) adapterView.getItemAtPosition(i));
-//                getFragmentManager().beginTransaction()
-//                        .replace(R.id.frame_container, tranCreator)
-//                        .commit();
+                getFragmentManager().beginTransaction().addToBackStack("BudgetFragment")
+                        .replace(R.id.container, tranCreator).commit();
             }
         });
     }
 
     private void setFonts() {
-        Typeface slabBold = Typeface.createFromAsset(getActivity().getAssets(), "fonts/RobotoSlab-Bold.ttf");
-        Typeface slabThin = Typeface.createFromAsset(getActivity().getAssets(), "fonts/RobotoSlab-Thin.ttf");
-        Typeface slabReg = Typeface.createFromAsset(getActivity().getAssets(), "fonts/RobotoSlab-Regular.ttf");
+        Typeface slabBold = Typeface.createFromAsset(getActivity().getAssets(),
+                "fonts/RobotoSlab-Bold.ttf");
+        Typeface slabThin = Typeface.createFromAsset(getActivity().getAssets(),
+                "fonts/RobotoSlab-Thin.ttf");
+        Typeface slabReg = Typeface.createFromAsset(getActivity().getAssets(),
+                "fonts/RobotoSlab-Regular.ttf");
 
         TextView viewDollars = (TextView) mNumbersHeader.findViewById(R.id.dollars_view);
         viewDollars.setTypeface(slabBold);
