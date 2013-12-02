@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="Size">50sp</dimen>
+    
+    <dimen name="actionbar_tab_padding">0dip</dimen>
+    <dimen name="actionbar_title_font_size">22sp</dimen>
+    
+    <dimen name="button_font_size">24sp</dimen>
+</resources>

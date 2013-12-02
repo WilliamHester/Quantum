@@ -1,0 +1,68 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="DeskClockDropDownListView" parent="@android:style/Widget.Holo.ListView.DropDown">
+        <item name="android:listSelector">@drawable/item_background</item>
+    </style>
+    
+    <style name="AppTheme" parent="@android:style/Theme.Holo">
+        <item name="android:windowBackground">@color/blackish</item>
+        <item name="android:actionBarStyle">@style/SettingsTheme.ActionBar</item>
+        <item name="android:dropDownListViewStyle">@style/DeskClockDropDownListView</item>
+        <item name="android:selectableItemBackground">@drawable/item_background</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:actionDropDownStyle">@style/ActionBarSpinnerStyle</item>
+    </style>
+    
+    <style name="SettingsTheme" parent="android:Theme.Holo">
+        <item name="android:windowBackground">@color/blackish</item>
+        <item name="android:actionBarStyle">@style/SettingsTheme.ActionBar</item>
+        <item name="android:dropDownListViewStyle">@style/DeskClockDropDownListView</item>
+        <item name="android:selectableItemBackground">@drawable/item_background</item>
+    </style>
+
+    <style name="SettingsTheme.ActionBar" parent="@android:style/Widget.Holo.ActionBar">
+        <item name="android:titleTextStyle">@style/SettingsTheme.TextAppearance.ActionBar.Title</item>
+        <item name="android:displayOptions">useLogo|showTitle</item>
+    </style>
+    
+    <style name="SettingsTheme.TextAppearance.ActionBar.Title" parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">
+        <item name="android:textSize">@dimen/actionbar_title_font_size</item>
+        <item name="android:textColor">@color/red</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+    
+    <style name="ActionBarSpinnerStyle" parent="@android:style/TextAppearance.Holo">
+        <item name="android:width">@dimen/actionbar_spinner_width</item>
+    </style>
+    
+    <style name="medium_light">
+        <item name="android:textSize">@dimen/medium_font_size</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+
+    <style name="dialpad">
+        <item name="android:textSize">@dimen/dialpad_font_size</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@drawable/item_background_orange</item>
+    </style>
+
+    <style name="dialpad_ampm" parent="dialpad">
+        <item name="android:textSize">@dimen/dialpad_font_size_ampm</item>
+    </style>
+    
+    <style name="dialog_button">
+        <item name="android:textSize">@dimen/dialog_button_font_size</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textColor">@color/dark_gray</item>
+    </style>
+    
+    <style name="button">
+        <item name="android:textSize">@dimen/button_font_size</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:fontFamily">sans-serif-condensed</item>
+    </style>
+
+</resources>

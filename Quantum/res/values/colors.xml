@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <color name="white">#ffffff</color>
+    <color name="ghostwhite">#F8F8FF</color>
+    <color name="gray">#ffaaaaaa</color>
+    <color name="dark_gray">#545454</color>
+    <color name="mid_gray">#A8A8A8</color>
+    <color name="black">#000000</color>
+    <color name="blackish">#ff1c1e20</color>
+    <color name="red">#ffee0000</color>
+    <color name="gainsboro">#DCDCDC</color>
+    <color name="dark_green">#ff669900</color>
+    <color name="green">#99CC00</color>
+    <color name="transparent">#00000000</color>
+    <color name="transparent_white">#66ffffff</color>
+    <color name="orangeish">#dd550c</color>
+    <color name="auburn">#f68026</color>
+    <color name="transparent_orangeish">#66dd550c</color>
+    
+</resources>

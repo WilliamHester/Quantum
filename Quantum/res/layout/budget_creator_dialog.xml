@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_gravity="center"
+        android:text="@string/budget_title"
+        android:textSize="15sp" />
+    
+    <EditText
+        android:id="@+id/budget_title"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:inputType="text"
+        android:hint="@string/budget_hint"/>
+    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center_horizontal"
+        android:text="@string/budget_value"
+        android:textSize="15sp" />
+
+    <EditText
+        android:id="@+id/budget_value"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:inputType="numberDecimal"
+        android:hint="@string/dollars_hint" />
+    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_gravity="center"
+        android:text="@string/budget_interval"
+        android:textSize="15sp" />
+    
+    <Spinner 
+        android:id="@+id/budget_interval"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_gravity="center" />
+
+    <TextView
+            android:id="@+id/interval_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center_horizontal"
+            android:textSize="15sp" />
+
+    <Spinner
+            android:id="@+id/sub_interval_spinner"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:visibility="invisible"
+            android:gravity="center_horizontal"
+            android:layout_gravity="center"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_marginTop="8dip"
+        android:layout_height="1dip"
+        android:background="@color/gray" />
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center|bottom" >
+    	<Button
+            android:id="@+id/cancel"
+            android:text="@string/cancel"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            style="@style/dialog_button"
+            android:background="@drawable/item_background"
+            android:layout_height="wrap_content" />
+        <View
+            android:layout_height="match_parent"
+            android:layout_marginTop="8dip"
+            android:layout_marginBottom="8dip"
+            android:layout_width="1dip"
+            android:background="@color/gray" />
+    	<Button
+        	android:id="@+id/save"
+            android:text="@string/save"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            style="@style/dialog_button"
+            android:background="@drawable/item_background"
+            android:layout_height="wrap_content"
+            android:onClick="startNormalView" />
+    </LinearLayout>
+
+</LinearLayout>

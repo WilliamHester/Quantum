@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <Spinner
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/weekly_spinner"
+        />
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center|bottom" >
+
+        <Button
+                android:id="@+id/cancel"
+                android:text="@string/cancel"
+                android:layout_width="0dip"
+                android:layout_weight="1"
+                style="@style/dialog_button"
+                android:background="@drawable/item_background"
+                android:layout_height="wrap_content" />
+        <View
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dip"
+                android:layout_marginBottom="8dip"
+                android:layout_width="1dip"
+                android:background="#28ffffff" />
+        <Button
+                android:id="@+id/save"
+                android:text="@string/save"
+                android:layout_width="0dip"
+                android:layout_weight="1"
+                style="@style/dialog_button"
+                android:background="@drawable/item_background"
+                android:layout_height="wrap_content"
+                android:onClick="startNormalView" />
+
+    </LinearLayout>
+
+</LinearLayout>
