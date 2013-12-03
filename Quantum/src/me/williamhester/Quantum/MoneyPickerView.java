@@ -15,8 +15,10 @@ public class MoneyPickerView extends LinearLayout implements Button.OnClickListe
 
     protected final int POSITIVE = 1;
     protected final int NEGATIVE = -1;
+    protected final int DEFAULT_TEXT_SIZE = 48;
 
 	protected int mInputSize = 6;
+    protected int mTextSize;
 	
 	protected int mAddSub = POSITIVE;
 	protected int mInputPointer = -1;
@@ -31,9 +33,15 @@ public class MoneyPickerView extends LinearLayout implements Button.OnClickListe
     	this(context, null);
     }
 
-    public MoneyPickerView(Context context, AttributeSet attrs) { 
-    	super(context, attrs);
-    	mContext = context;
+    public MoneyPickerView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        mContext = context;
+        if (attrs != null) {
+            String packageName = "http://schemas.android.com/apk/res-auto";
+            mTextSize = attrs.getAttributeIntValue(packageName, "textSize", DEFAULT_TEXT_SIZE);
+        } else {
+            mTextSize = DEFAULT_TEXT_SIZE;
+        }
         LayoutInflater layoutInflater =
                 (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         layoutInflater.inflate(getLayoutId(), this);
@@ -52,7 +60,9 @@ public class MoneyPickerView extends LinearLayout implements Button.OnClickListe
         View v3 = findViewById(R.id.third);
         View v4 = findViewById(R.id.fourth);
         mEnteredMoney = (MoneyView)findViewById(R.id.money_text);
+        mEnteredMoney.setTextSize(mTextSize);
         mDelete = (ImageButton)findViewById(R.id.delete);
+        mDelete.requestLayout();
         mDelete.setOnClickListener(this);
         mDelete.setOnLongClickListener(this);
         
@@ -75,7 +85,8 @@ public class MoneyPickerView extends LinearLayout implements Button.OnClickListe
         mLeft.setOnClickListener(this);
         mRight.setOnClickListener(this);
 
-        Typeface slabThin = Typeface.createFromAsset(mContext.getAssets(), "fonts/RobotoSlab-Light.ttf");
+        Typeface slabThin = Typeface.createFromAsset(mContext.getAssets(),
+                "fonts/RobotoSlab-Light.ttf");
 
         for (int i = 0; i < 10; i++) {
             mNumbers[i].setOnClickListener(this);
@@ -83,6 +94,7 @@ public class MoneyPickerView extends LinearLayout implements Button.OnClickListe
             mNumbers[i].setTag(R.id.numbers_key, Integer.valueOf(i));
             mNumbers[i].setTextColor(getResources().getColor(R.color.dark_gray));
             mNumbers[i].setTypeface(slabThin);
+            mNumbers[i].setTextSize(mTextSize);
         }
 
 		mLeft.setText(R.string.add);

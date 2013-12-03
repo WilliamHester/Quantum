@@ -10,7 +10,7 @@ import android.widget.TextView;
 public class MoneyView extends LinearLayout {
 	
 	private Context mContext;
-    private TextView mThousands, mHundreds, mTens, mOnes, mTenths, mHundredths;
+    private TextView mThousands, mHundreds, mTens, mOnes, mDecimal, mTenths, mHundredths;
 
     public MoneyView(Context context) {
         this(context, null);
@@ -24,7 +24,8 @@ public class MoneyView extends LinearLayout {
     @Override
     public void onFinishInflate() {
     	super.onFinishInflate();
-        Typeface slabLight = Typeface.createFromAsset(mContext.getAssets(), "fonts/RobotoSlab-Light.ttf");
+        Typeface slabLight = Typeface.createFromAsset(mContext.getAssets(),
+                "fonts/RobotoSlab-Light.ttf");
     	
     	mThousands = (TextView)findViewById(R.id.thousands);
         mThousands.setTypeface(slabLight);
@@ -34,13 +35,13 @@ public class MoneyView extends LinearLayout {
         mTens.setTypeface(slabLight);
     	mOnes = (TextView)findViewById(R.id.ones);
         mOnes.setTypeface(slabLight);
-        TextView decimal = (TextView) findViewById(R.id.decimal);
-        decimal.setTypeface(slabLight);
+        mDecimal = (TextView) findViewById(R.id.decimal);
+        mDecimal.setTypeface(slabLight);
     	mTenths = (TextView)findViewById(R.id.tenths);
         mTenths.setTypeface(slabLight);
     	mHundredths = (TextView)findViewById(R.id.hundredths);
         mHundredths.setTypeface(slabLight);
-    	
+
     	setMoney(1, 1, 1, 0, 0, 0);
     	setMoney(0, 0, 0, 0, 0, 0);
     }
@@ -72,6 +73,16 @@ public class MoneyView extends LinearLayout {
     	mTenths.setText(String.format("%d", tenths));
     	
     	mHundredths.setText(String.format("%d", hundredths));
+    }
+
+    public void setTextSize(float textSize) {
+        mThousands.setTextSize(textSize);
+        mHundreds.setTextSize(textSize);
+        mTens.setTextSize(textSize);
+        mOnes.setTextSize(textSize);
+        mDecimal.setTextSize(textSize);
+        mTenths.setTextSize(textSize);
+        mHundredths.setTextSize(textSize);
     }
 
 }

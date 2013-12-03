@@ -77,7 +77,7 @@ public class BudgetLauncherFragment extends Fragment {
         switch (item.getItemId()) {
             case R.id.new_budget:
                 FragmentManager fm = getFragmentManager();
-                NewBudgetDialog fragment = new NewBudgetDialog(this);
+                BudgetCreatorDialogFragment fragment = new BudgetCreatorDialogFragment(this);
                 fragment.show(fm, "fragment_new_budget");
                 return true;
             default:

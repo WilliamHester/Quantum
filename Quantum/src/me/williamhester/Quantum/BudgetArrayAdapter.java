@@ -32,9 +32,12 @@ public class BudgetArrayAdapter extends ArrayAdapter<Budget> {
 //        TextView value = (TextView) view.findViewById(R.id.budget_value);
 //            TextView spentPercentage = (TextView) view.findViewById(R.id.spent_percentage);
 
-        Typeface slabBold = Typeface.createFromAsset(mContext.getAssets(), "fonts/RobotoSlab-Bold.ttf");
-        Typeface slabThin = Typeface.createFromAsset(mContext.getAssets(), "fonts/RobotoSlab-Thin.ttf");
-        Typeface slabReg = Typeface.createFromAsset(mContext.getAssets(), "fonts/RobotoSlab-Regular.ttf");
+        Typeface slabBold = Typeface.createFromAsset(mContext.getAssets(),
+                "fonts/RobotoSlab-Bold.ttf");
+        Typeface slabThin = Typeface.createFromAsset(mContext.getAssets(),
+                "fonts/RobotoSlab-Thin.ttf");
+        Typeface slabReg = Typeface.createFromAsset(mContext.getAssets(),
+                "fonts/RobotoSlab-Regular.ttf");
 
         name.setTypeface(slabBold);
 //        value.setTypeface(slabReg);

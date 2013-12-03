@@ -17,15 +17,15 @@ import android.widget.Toast;
 
 import java.util.Calendar;
 
-public class NewBudgetDialog extends DialogFragment {
+public class BudgetCreatorDialogFragment extends DialogFragment {
 
     private Fragment mLauncher;
 
-    public NewBudgetDialog() {
+    public BudgetCreatorDialogFragment() {
         this(null);
     }
 
-    public NewBudgetDialog(Fragment launcher) {
+    public BudgetCreatorDialogFragment(Fragment launcher) {
         mLauncher = launcher;
     }
 	

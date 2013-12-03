@@ -86,7 +86,7 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="34" selection-start="307" selection-end="307" vertical-scroll-proportion="-4.76" vertical-offset="0" max-vertical-offset="425">
+            <state line="18" column="47" selection-start="779" selection-end="779" vertical-scroll-proportion="-9.24" vertical-offset="75" max-vertical-offset="425">
               <folding />
             </state>
           </provider>
@@ -95,61 +95,66 @@
       <file leaf-file-name="BudgetActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/me/williamhester/Quantum/BudgetActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="124" column="17" selection-start="4517" selection-end="4517" vertical-scroll-proportion="0.0" vertical-offset="2328" max-vertical-offset="3060">
+            <state line="195" column="5" selection-start="7027" selection-end="7027" vertical-scroll-proportion="0.0" vertical-offset="3059" max-vertical-offset="3434">
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2375#2395#0" expanded="true" />
-                <element signature="e#2397#2418#0" expanded="true" />
-                <element signature="e#2926#2953#0" expanded="true" />
+                <element signature="e#2484#3203#0" expanded="true" />
+                <element signature="e#3192#3193#0" expanded="true" />
+                <element signature="e#3335#3355#0" expanded="true" />
+                <element signature="e#3357#3378#0" expanded="true" />
+                <element signature="e#3846#3873#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="budget_fragment_menu.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/menu/budget_fragment_menu.xml">
+      <file leaf-file-name="BudgetCreatorDialogFragment.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/me/williamhester/Quantum/BudgetCreatorDialogFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="49" selection-start="420" selection-end="420" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="323">
+            <state line="168" column="5" selection-start="6496" selection-end="6496" vertical-scroll-proportion="0.0" vertical-offset="2260" max-vertical-offset="2635">
               <folding>
-                <element signature="e#174#199#0" expanded="true" />
-                <element signature="e#393#420#0" expanded="true" />
+                <element signature="e#1296#1315#0" expanded="true" />
+                <element signature="e#2492#2517#0" expanded="true" />
+                <element signature="e#3105#3132#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BudgetFragment.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="BudgetArrayAdapter.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/me/williamhester/Quantum/BudgetArrayAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="39" column="16" selection-start="1495" selection-end="1495" vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="1054">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BudgetFragment.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/me/williamhester/Quantum/BudgetFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="17" selection-start="1372" selection-end="1372" vertical-scroll-proportion="0.0" vertical-offset="640" max-vertical-offset="5236">
+            <state line="311" column="32" selection-start="12074" selection-end="12074" vertical-scroll-proportion="3.6293333" vertical-offset="3280" max-vertical-offset="4862">
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#3890#4465#0" expanded="true" />
-                <element signature="e#4458#4459#0" expanded="true" />
-                <element signature="e#4527#5500#0" expanded="true" />
-                <element signature="e#5493#5494#0" expanded="true" />
-                <element signature="e#6449#6546#0" expanded="true" />
-                <element signature="e#6530#6531#0" expanded="true" />
-                <element signature="e#6584#6706#0" expanded="true" />
-                <element signature="e#6695#6696#0" expanded="true" />
-                <element signature="e#6840#7239#0" expanded="true" />
-                <element signature="e#7228#7229#0" expanded="true" />
-                <element signature="e#7371#7515#0" expanded="true" />
-                <element signature="e#7504#7505#0" expanded="true" />
-                <element signature="e#7598#8703#0" expanded="true" />
-                <element signature="e#8692#8693#0" expanded="true" />
-                <element signature="e#8777#9305#0" expanded="true" />
-                <element signature="e#9294#9295#0" expanded="true" />
+                <element signature="e#4061#4636#0" expanded="true" />
+                <element signature="e#4629#4630#0" expanded="true" />
+                <element signature="e#7011#7374#0" expanded="true" />
+                <element signature="e#7363#7364#0" expanded="true" />
+                <element signature="e#12000#12176#0" expanded="true" />
+                <element signature="e#12169#12170#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ContainerActivity.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/me/williamhester/Quantum/ContainerActivity.java">
+      <file leaf-file-name="TransactionCreatorDialogFragment.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/me/williamhester/Quantum/TransactionCreatorDialogFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="4" selection-start="162" selection-end="162" vertical-scroll-proportion="0.408" vertical-offset="0" max-vertical-offset="375">
-              <folding />
+            <state line="122" column="38" selection-start="4475" selection-end="4475" vertical-scroll-proportion="-8.56" vertical-offset="1775" max-vertical-offset="3247">
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#3737#4582#0" expanded="true" />
+                <element signature="e#4571#4572#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -510,22 +515,34 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/me/williamhester/Quantum/BudgetArrayAdapter.java" />
         <option value="$PROJECT_DIR$/res/layout/budget_list_item.xml" />
         <option value="$PROJECT_DIR$/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/me/williamhester/Quantum/TransactionArrayAdapter.java" />
-        <option value="$PROJECT_DIR$/src/me/williamhester/Quantum/BudgetPreferenceFragment.java" />
-        <option value="$PROJECT_DIR$/src/me/williamhester/Quantum/NewBudgetDialog.java" />
         <option value="$PROJECT_DIR$/src/me/williamhester/Quantum/TransactionCreatorFragment.java" />
         <option value="$PROJECT_DIR$/src/me/williamhester/Quantum/BudgetLauncherFragment.java" />
         <option value="$PROJECT_DIR$/src/me/williamhester/Quantum/TransactionInfoFragment.java" />
-        <option value="$PROJECT_DIR$/res/layout/container.xml" />
         <option value="$PROJECT_DIR$/src/me/williamhester/Quantum/MainActivity.java" />
         <option value="$PROJECT_DIR$/res/menu/budget_fragment_menu.xml" />
-        <option value="$PROJECT_DIR$/src/me/williamhester/Quantum/BudgetActivity.java" />
-        <option value="$PROJECT_DIR$/src/me/williamhester/Quantum/BudgetFragment.java" />
+        <option value="$PROJECT_DIR$/res/layout/container_activity.xml" />
         <option value="$PROJECT_DIR$/src/me/williamhester/Quantum/ContainerActivity.java" />
+        <option value="$PROJECT_DIR$/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/src/me/williamhester/Quantum/SettingsContainerActivity.java" />
+        <option value="$PROJECT_DIR$/src/me/williamhester/Quantum/BudgetPreferenceFragment.java" />
+        <option value="$PROJECT_DIR$/res/values/attrs.xml" />
+        <option value="$PROJECT_DIR$/res/values/styles.xml" />
+        <option value="$PROJECT_DIR$/res/layout/transaction_creator_dialog_fragment.xml" />
+        <option value="$PROJECT_DIR$/src/me/williamhester/Quantum/MoneyView.java" />
+        <option value="$PROJECT_DIR$/src/me/williamhester/Quantum/MoneyPickerView.java" />
+        <option value="$PROJECT_DIR$/src/me/williamhester/Quantum/BudgetArrayAdapter.java" />
+        <option value="$PROJECT_DIR$/res/layout/container.xml" />
+        <option value="$PROJECT_DIR$/src/me/williamhester/Quantum/NewBudgetDialog.java" />
+        <option value="$PROJECT_DIR$/src/me/williamhester/Quantum/BudgetCreatorFragment.java" />
+        <option value="$PROJECT_DIR$/src/me/williamhester/Quantum/GenericCallback.java" />
+        <option value="$PROJECT_DIR$/src/me/williamhester/Quantum/BudgetActivity.java" />
+        <option value="$PROJECT_DIR$/src/me/williamhester/Quantum/BudgetCreatorDialogFragment.java" />
+        <option value="$PROJECT_DIR$/src/me/williamhester/Quantum/TransactionCreatorDialogFragment.java" />
+        <option value="$PROJECT_DIR$/src/me/williamhester/Quantum/BudgetFragment.java" />
       </list>
     </option>
   </component>
@@ -624,6 +641,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\William\Documents\GitHub\Quantum\Quantum\res\layout" />
       <recent name="C:\Users\William\Documents\GitHub\Quantum\Quantum\res\drawable-xxhdpi" />
       <recent name="C:\Users\William\Documents\GitHub\Quantum\Quantum\res\drawable-xhdpi" />
       <recent name="C:\Users\William\Documents\GitHub\Quantum\Quantum\res\drawable-mdpi" />
@@ -890,9 +908,11 @@
         <state line="354" column="49" selection-start="13672" selection-end="13683" vertical-scroll-proportion="0.0" vertical-offset="5854" max-vertical-offset="7123">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2375#2395#0" expanded="true" />
-            <element signature="e#2397#2418#0" expanded="true" />
-            <element signature="e#2926#2953#0" expanded="true" />
+            <element signature="e#2484#3203#0" expanded="true" />
+            <element signature="e#3192#3193#0" expanded="true" />
+            <element signature="e#3335#3355#0" expanded="true" />
+            <element signature="e#3357#3378#0" expanded="true" />
+            <element signature="e#3846#3873#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -901,23 +921,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="104" column="21" selection-start="3290" selection-end="3290" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6018">
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3890#4465#0" expanded="true" />
-            <element signature="e#4458#4459#0" expanded="true" />
-            <element signature="e#4527#5500#0" expanded="true" />
-            <element signature="e#5493#5494#0" expanded="true" />
-            <element signature="e#6449#6546#0" expanded="true" />
-            <element signature="e#6530#6531#0" expanded="true" />
-            <element signature="e#6584#6706#0" expanded="true" />
-            <element signature="e#6695#6696#0" expanded="true" />
-            <element signature="e#6840#7239#0" expanded="true" />
-            <element signature="e#7228#7229#0" expanded="true" />
-            <element signature="e#7371#7515#0" expanded="true" />
-            <element signature="e#7504#7505#0" expanded="true" />
-            <element signature="e#7598#8703#0" expanded="true" />
-            <element signature="e#8692#8693#0" expanded="true" />
-            <element signature="e#8777#9305#0" expanded="true" />
-            <element signature="e#9294#9295#0" expanded="true" />
+            <element signature="e#4061#4636#0" expanded="true" />
+            <element signature="e#4629#4630#0" expanded="true" />
+            <element signature="e#7011#7374#0" expanded="true" />
+            <element signature="e#7363#7364#0" expanded="true" />
+            <element signature="e#12000#12176#0" expanded="true" />
+            <element signature="e#12169#12170#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -941,9 +950,11 @@
         <state line="41" column="43" selection-start="1518" selection-end="1518" vertical-scroll-proportion="0.0" vertical-offset="529" max-vertical-offset="3825">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2375#2395#0" expanded="true" />
-            <element signature="e#2397#2418#0" expanded="true" />
-            <element signature="e#2926#2953#0" expanded="true" />
+            <element signature="e#2484#3203#0" expanded="true" />
+            <element signature="e#3192#3193#0" expanded="true" />
+            <element signature="e#3335#3355#0" expanded="true" />
+            <element signature="e#3357#3378#0" expanded="true" />
+            <element signature="e#3846#3873#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1033,11 +1044,6 @@
         <state line="54" column="0" selection-start="2845" selection-end="2845" vertical-scroll-proportion="0.0" vertical-offset="641" max-vertical-offset="1003" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/me/williamhester/Quantum/BudgetArrayAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="79" selection-start="919" selection-end="919" vertical-scroll-proportion="0.89066666" vertical-offset="159" max-vertical-offset="1139" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/me/williamhester/Quantum/TransactionArrayAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="0" selection-start="262" selection-end="262" vertical-scroll-proportion="-0.21428572" vertical-offset="276" max-vertical-offset="1207">
@@ -1058,34 +1064,6 @@
       </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state line="18" column="58" selection-start="878" selection-end="878" vertical-scroll-proportion="0.5708955" vertical-offset="0" max-vertical-offset="536">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/me/williamhester/Quantum/BudgetPreferenceFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="18" selection-start="1607" selection-end="1607" vertical-scroll-proportion="0.0" vertical-offset="592" max-vertical-offset="3451">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/me/williamhester/Quantum/TransactionInfoFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="101" column="36" selection-start="3561" selection-end="3707" vertical-scroll-proportion="0.7087912" vertical-offset="1255" max-vertical-offset="2975">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/me/williamhester/Quantum/NewBudgetDialog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="140" column="0" selection-start="5879" selection-end="5879" vertical-scroll-proportion="0.38186812" vertical-offset="1901" max-vertical-offset="2635">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/me/williamhester/Quantum/TransactionCreatorFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="128" column="0" selection-start="4624" selection-end="4624" vertical-scroll-proportion="0.61538464" vertical-offset="1765" max-vertical-offset="3162">
           <folding />
         </state>
       </provider>
@@ -1124,16 +1102,193 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+    <entry file="file://$PROJECT_DIR$/res/menu/budget_launcher_menu.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="646">
+        <state line="6" column="40" selection-start="236" selection-end="236" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="272">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/menu/budget_launcher_menu.xml">
+    <entry file="file://$PROJECT_DIR$/src/me/williamhester/Quantum/BudgetDataSource.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="40" selection-start="236" selection-end="236" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="272">
+        <state line="20" column="47" selection-start="774" selection-end="774" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3264">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/williamhester/Quantum/BudgetPreferenceFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="64" column="39" selection-start="1913" selection-end="1913" vertical-scroll-proportion="0.8613333" vertical-offset="612" max-vertical-offset="4046">
+          <folding>
+            <element signature="e#2907#3708#0" expanded="true" />
+            <element signature="e#3697#3698#0" expanded="true" />
+            <element signature="e#4257#4899#0" expanded="true" />
+            <element signature="e#4884#4885#0" expanded="true" />
+            <element signature="e#4975#4995#0" expanded="true" />
+            <element signature="e#5239#5260#0" expanded="true" />
+            <element signature="e#5291#5318#0" expanded="true" />
+            <element signature="e#5358#5370#0" expanded="true" />
+            <element signature="e#5372#6116#0" expanded="true" />
+            <element signature="e#6101#6102#0" expanded="true" />
+            <element signature="e#6156#6171#0" expanded="true" />
+            <element signature="e#6548#6569#0" expanded="true" />
+            <element signature="e#6600#6617#0" expanded="true" />
+            <element signature="e#6657#6669#0" expanded="true" />
+            <element signature="e#6671#7038#0" expanded="true" />
+            <element signature="e#7023#7024#0" expanded="true" />
+            <element signature="e#7078#7093#0" expanded="true" />
+            <element signature="e#7484#7505#0" expanded="true" />
+            <element signature="e#7536#7563#0" expanded="true" />
+            <element signature="e#7603#7615#0" expanded="true" />
+            <element signature="e#7617#8040#0" expanded="true" />
+            <element signature="e#8025#8026#0" expanded="true" />
+            <element signature="e#8080#8095#0" expanded="true" />
+            <element signature="e#8908#8939#0" expanded="true" />
+            <element signature="e#9268#9634#0" expanded="true" />
+            <element signature="e#9627#9628#0" expanded="true" />
+            <element signature="e#9741#10223#0" expanded="true" />
+            <element signature="e#10216#10217#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/williamhester/Quantum/SettingsContainerActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="12" selection-start="869" selection-end="999" vertical-scroll-proportion="0.58933336" vertical-offset="255" max-vertical-offset="731">
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="56" selection-start="1275" selection-end="1275" vertical-scroll-proportion="0.864" vertical-offset="254" max-vertical-offset="748">
+          <folding>
+            <element signature="e#344#362#0" expanded="true" />
+            <element signature="e#532#550#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/menu/budget_fragment_menu.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="49" selection-start="420" selection-end="420" vertical-scroll-proportion="0.408" vertical-offset="0" max-vertical-offset="375">
+          <folding>
+            <element signature="e#174#199#0" expanded="true" />
+            <element signature="e#393#420#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/container_activity.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="0" selection-start="39" selection-end="39" vertical-scroll-proportion="0.04857143" vertical-offset="0" max-vertical-offset="350">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/williamhester/Quantum/TransactionInfoFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="101" column="36" selection-start="3561" selection-end="3707" vertical-scroll-proportion="0.0" vertical-offset="2600" max-vertical-offset="2975">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/williamhester/Quantum/MoneyPickerDialogFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="87" selection-start="672" selection-end="711" vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="833">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/three_keys_view.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.8457143" vertical-offset="296" max-vertical-offset="748">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/williamhester/Quantum/TransactionCreatorFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="36" selection-start="478" selection-end="478" vertical-scroll-proportion="0.20804195" vertical-offset="0" max-vertical-offset="3162">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/values/attrs.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="12" selection-start="222" selection-end="222" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="204">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/transaction_creator_dialog_fragment.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="103" column="41" selection-start="3447" selection-end="3447" vertical-scroll-proportion="5.002857" vertical-offset="0" max-vertical-offset="1887">
+          <folding>
+            <element signature="e#657#675#0" expanded="true" />
+            <element signature="e#1180#1194#0" expanded="true" />
+            <element signature="e#2101#2117#0" expanded="true" />
+            <element signature="e#2648#2664#0" expanded="true" />
+            <element signature="e#3180#3194#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/money_picker_dialog.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="48" selection-start="1713" selection-end="1713" vertical-scroll-proportion="0.61142856" vertical-offset="500" max-vertical-offset="1054">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/money_view_layout.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="51.0" vertical-offset="1275" max-vertical-offset="1921">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/values/dimen.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="493">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/values/styles.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="60" column="52" selection-start="2962" selection-end="2962" vertical-scroll-proportion="0.0" vertical-offset="612" max-vertical-offset="1173">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/williamhester/Quantum/MoneyPickerView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="64" column="32" selection-start="2141" selection-end="2141" vertical-scroll-proportion="0.0" vertical-offset="3688" max-vertical-offset="4675">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/williamhester/Quantum/MoneyView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="43" selection-start="1476" selection-end="1476" vertical-scroll-proportion="0.456" vertical-offset="458" max-vertical-offset="1513">
           <folding />
         </state>
       </provider>
@@ -1143,62 +1298,72 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="34" selection-start="307" selection-end="307" vertical-scroll-proportion="-4.76" vertical-offset="0" max-vertical-offset="425">
+        <state line="18" column="47" selection-start="779" selection-end="779" vertical-scroll-proportion="-9.24" vertical-offset="75" max-vertical-offset="425">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/menu/budget_fragment_menu.xml">
+    <entry file="file://$PROJECT_DIR$/src/me/williamhester/Quantum/BudgetArrayAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="49" selection-start="420" selection-end="420" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="323">
-          <folding>
-            <element signature="e#174#199#0" expanded="true" />
-            <element signature="e#393#420#0" expanded="true" />
-          </folding>
+        <state line="39" column="16" selection-start="1495" selection-end="1495" vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="1054">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/williamhester/Quantum/GenericCallback.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="27" selection-start="139" selection-end="139" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="238">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/me/williamhester/Quantum/BudgetActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="124" column="17" selection-start="4517" selection-end="4517" vertical-scroll-proportion="0.0" vertical-offset="2328" max-vertical-offset="3060">
+        <state line="195" column="5" selection-start="7027" selection-end="7027" vertical-scroll-proportion="0.0" vertical-offset="3059" max-vertical-offset="3434">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2375#2395#0" expanded="true" />
-            <element signature="e#2397#2418#0" expanded="true" />
-            <element signature="e#2926#2953#0" expanded="true" />
+            <element signature="e#2484#3203#0" expanded="true" />
+            <element signature="e#3192#3193#0" expanded="true" />
+            <element signature="e#3335#3355#0" expanded="true" />
+            <element signature="e#3357#3378#0" expanded="true" />
+            <element signature="e#3846#3873#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/williamhester/Quantum/BudgetCreatorDialogFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="168" column="5" selection-start="6496" selection-end="6496" vertical-scroll-proportion="0.0" vertical-offset="2260" max-vertical-offset="2635">
+          <folding>
+            <element signature="e#1296#1315#0" expanded="true" />
+            <element signature="e#2492#2517#0" expanded="true" />
+            <element signature="e#3105#3132#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/williamhester/Quantum/TransactionCreatorDialogFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="122" column="38" selection-start="4475" selection-end="4475" vertical-scroll-proportion="-8.56" vertical-offset="1775" max-vertical-offset="3247">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3737#4582#0" expanded="true" />
+            <element signature="e#4571#4572#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/me/williamhester/Quantum/BudgetFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="17" selection-start="1372" selection-end="1372" vertical-scroll-proportion="0.0" vertical-offset="640" max-vertical-offset="5236">
+        <state line="311" column="32" selection-start="12074" selection-end="12074" vertical-scroll-proportion="3.6293333" vertical-offset="3280" max-vertical-offset="4862">
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3890#4465#0" expanded="true" />
-            <element signature="e#4458#4459#0" expanded="true" />
-            <element signature="e#4527#5500#0" expanded="true" />
-            <element signature="e#5493#5494#0" expanded="true" />
-            <element signature="e#6449#6546#0" expanded="true" />
-            <element signature="e#6530#6531#0" expanded="true" />
-            <element signature="e#6584#6706#0" expanded="true" />
-            <element signature="e#6695#6696#0" expanded="true" />
-            <element signature="e#6840#7239#0" expanded="true" />
-            <element signature="e#7228#7229#0" expanded="true" />
-            <element signature="e#7371#7515#0" expanded="true" />
-            <element signature="e#7504#7505#0" expanded="true" />
-            <element signature="e#7598#8703#0" expanded="true" />
-            <element signature="e#8692#8693#0" expanded="true" />
-            <element signature="e#8777#9305#0" expanded="true" />
-            <element signature="e#9294#9295#0" expanded="true" />
+            <element signature="e#4061#4636#0" expanded="true" />
+            <element signature="e#4629#4630#0" expanded="true" />
+            <element signature="e#7011#7374#0" expanded="true" />
+            <element signature="e#7363#7364#0" expanded="true" />
+            <element signature="e#12000#12176#0" expanded="true" />
+            <element signature="e#12169#12170#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/me/williamhester/Quantum/ContainerActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="4" selection-start="162" selection-end="162" vertical-scroll-proportion="0.408" vertical-offset="0" max-vertical-offset="375">
-          <folding />
         </state>
       </provider>
     </entry>
