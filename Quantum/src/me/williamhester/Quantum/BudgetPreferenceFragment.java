@@ -16,6 +16,8 @@ import android.view.MenuItem;
  */
 public class BudgetPreferenceFragment extends PreferenceFragment {
 
+    private long mId;
+
     private Preference mChangeName;
     private Preference mClearHistory;
     private Preference mManualReset;
@@ -26,13 +28,23 @@ public class BudgetPreferenceFragment extends PreferenceFragment {
     private Preference mChangeDayOfMonth;
     private Budget mBudget;
 
-    public BudgetPreferenceFragment(Budget budget) {
-        mBudget = budget;
+    /**
+     * Instantiates a BudgetPreferenceFragment
+     *
+     * @param id the Id of the Budget to be manipulated.
+     */
+    public BudgetPreferenceFragment(long id) {
+        mId = id;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        BudgetDataSource data = new BudgetDataSource(getActivity());
+        data.open();
+        mBudget = data.getBudgetFromId(mId);
+        data.close();
 
         if (getActivity().getActionBar() != null) {
             getActivity().getActionBar().setDisplayHomeAsUpEnabled(true);
@@ -49,7 +61,9 @@ public class BudgetPreferenceFragment extends PreferenceFragment {
 
         switch (item.getItemId()) {
             case android.R.id.home:
-//                ((OnFragmentOpenedListener) getActivity()).onFragmentClosed();
+                if (getFragmentManager().getBackStackEntryCount() == 0)
+                getActivity().finish();
+                getFragmentManager().popBackStack();
                 return true;
             default:
                 return true;

@@ -3,6 +3,7 @@ package me.williamhester.Quantum;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,7 +15,6 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -101,11 +101,15 @@ class BudgetFragment extends Fragment {
 
                 return true;
             case R.id.budget_management:
-                BudgetPreferenceFragment fragment2 = new BudgetPreferenceFragment(mBudget);
-                getFragmentManager().beginTransaction().addToBackStack("BudgetFragment")
-                        .replace(R.id.container, fragment2)
-                        .commit();
+                Bundle b = new Bundle();
+                b.putLong(SettingsContainerActivity.BUDGET_ID, mBudget.getId());
+                Intent i = new Intent(getActivity(), SettingsContainerActivity.class);
+                i.putExtras(b);
+                getActivity().startActivity(i);
                 return true;
+            case R.id.add_new_budget:
+                BudgetCreatorDialogFragment bc = new BudgetCreatorDialogFragment();
+                bc.show(getFragmentManager(), "BudgetCreator");
             default:
                 return false;
         }
@@ -198,10 +202,9 @@ class BudgetFragment extends Fragment {
         newTransaction.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                TransactionCreatorFragment fragment =
-                        new TransactionCreatorFragment(mBudget.getId());
-                getFragmentManager().beginTransaction().addToBackStack("BudgetFragment")
-                        .replace(R.id.container, fragment).commit();
+                TransactionCreatorDialogFragment fragment =
+                        new TransactionCreatorDialogFragment(mBudget.getId(), transactionCallback);
+                fragment.show(getFragmentManager(), "TransactionCreatorDialogFragment");
             }
         });
         Button quickSpend = (Button) mButtonsHeader.findViewById(R.id.quick_spend_button);
@@ -212,35 +215,35 @@ class BudgetFragment extends Fragment {
             }
         });
 
-        mList.setLongClickable(true);
-        mList.setOnItemLongClickListener(new OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
-                FragmentManager fm = getFragmentManager();
-                TransactionEditorDialogFragment editor
-                        = new TransactionEditorDialogFragment(mTransactionDeletedCallback);
-                Bundle args = new Bundle();
-                args.putLong(TransactionEditorDialogFragment.BUDGET_ID, mBudget.getId());
-                args.putLong(TransactionEditorDialogFragment.TRANSACTION_ID,
-                        ((Transaction) adapterView.getItemAtPosition(i)).getId());
-                args.putInt(TransactionEditorDialogFragment.TRANSACTION_VALUE,
-                        ((Transaction) adapterView.getItemAtPosition(i)).getDollars());
-                args.putInt(TransactionEditorDialogFragment.POSITION, i);
-                editor.setArguments(args);
-                editor.setTargetFragment(mThis, 0);
-                editor.show(fm, "fragment_transaction_editor");
-                return true;
-            }
-        });
+//        mList.setLongClickable(true);
+//        mList.setOnItemLongClickListener(new OnItemLongClickListener() {
+//            @Override
+//            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                FragmentManager fm = getFragmentManager();
+//                TransactionEditorDialogFragment editor
+//                        = new TransactionEditorDialogFragment(mTransactionDeletedCallback);
+//                Bundle args = new Bundle();
+//                args.putLong(TransactionEditorDialogFragment.BUDGET_ID, mBudget.getId());
+//                args.putLong(TransactionEditorDialogFragment.TRANSACTION_ID,
+//                        ((Transaction) adapterView.getItemAtPosition(i)).getId());
+//                args.putInt(TransactionEditorDialogFragment.TRANSACTION_VALUE,
+//                        ((Transaction) adapterView.getItemAtPosition(i)).getDollars());
+//                args.putInt(TransactionEditorDialogFragment.POSITION, i);
+//                editor.setArguments(args);
+//                editor.setTargetFragment(mThis, 0);
+//                editor.show(fm, "fragment_transaction_editor");
+//                return true;
+//            }
+//        });
         mList.setClickable(true);
         mList.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                TransactionCreatorFragment tranCreator
-                        = new TransactionCreatorFragment(mBudget.getId(),
-                        (Transaction) adapterView.getItemAtPosition(i));
-                getFragmentManager().beginTransaction().addToBackStack("BudgetFragment")
-                        .replace(R.id.container, tranCreator).commit();
+                TransactionCreatorDialogFragment tranCreator
+                        = new TransactionCreatorDialogFragment(mBudget.getId(),
+                        (Transaction) adapterView.getItemAtPosition(i), transactionCallback);
+                tranCreator.show(getFragmentManager(), "TransactionEditor");
+
             }
         });
     }
@@ -276,6 +279,10 @@ class BudgetFragment extends Fragment {
         TransactionArrayAdapter adapter = new TransactionArrayAdapter(mContext, mTransactions);
     	mList.setAdapter(adapter);
     }
+
+    public String getBudgetName() {
+        return mBudget.getName();
+    }
 	
 	private void updateDisplayedBudget() {
         BudgetDataSource data = new BudgetDataSource(getActivity());
@@ -299,4 +306,13 @@ class BudgetFragment extends Fragment {
         viewDollars.setAlpha(opacity);
         viewCents.setAlpha(opacity);
     }
+
+    private GenericCallback transactionCallback = new GenericCallback() {
+        @Override
+        public void callback() {
+            updateDisplayedBudget();
+            loadList();
+            setUpList();
+        }
+    };
 }

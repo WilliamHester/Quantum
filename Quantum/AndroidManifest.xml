@@ -26,7 +26,13 @@
             android:name=".Welcome" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="hester.william.MainActivity" />
+                android:value="me.williamhester.MainActivity" />
+        </activity>
+        <activity
+            android:name=".SettingsContainerActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="me.williamhester.MainActivity" />
         </activity>
     </application>
 

@@ -10,16 +10,18 @@ import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.List;
 
 @SuppressLint("WorldReadableFiles")
-public class BudgetActivity extends FragmentActivity implements NewBudgetDialog.OnCreateNewBudget {
+public class BudgetActivity extends FragmentActivity implements BudgetCreatorDialogFragment.OnCreateNewBudget {
 
 	public final static String FIRST_TIME = "First time";
     public final static String POSITION_NUMBER = "position number";
@@ -29,6 +31,8 @@ public class BudgetActivity extends FragmentActivity implements NewBudgetDialog.
     private DrawerLayout mDrawerLayout;
     private List<Budget> mBudgets;
     private ListView mDrawerList;
+    private String mBudgetName;
+
 	private static SharedPreferences prefs;
 
     @Override
@@ -60,16 +64,33 @@ public class BudgetActivity extends FragmentActivity implements NewBudgetDialog.
         getFragmentManager().beginTransaction()
                 .replace(R.id.container, fragment)
                 .commit();
+//        if (fragment != null)
+//            mBudgetName = fragment.getBudgetName();
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
         mDrawerList.setAdapter(new BudgetArrayAdapter(mBudgets, this));
+        mDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Bundle b = new Bundle();
+                b.putLong(BudgetFragment.BUDGET_ID,
+                        ((Budget) adapterView.getItemAtPosition(i)).getId());
+                BudgetFragment fragment = new BudgetFragment();
+                fragment.setArguments(b);
+                getFragmentManager().beginTransaction()
+                        .replace(R.id.container, fragment)
+                        .commit();
+                mDrawerLayout.closeDrawer(Gravity.LEFT);
+//                mBudgetName = fragment.getBudgetName();
+            }
+        });
         
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
                 R.drawable.ic_navigation_drawer, R.string.drawer_open, R.string.drawer_close) {
             /** Called when a drawer has settled in a completely closed state. */
             public void onDrawerClosed(View view) {
-                // TODO: find a _good_ way to get the fragment's budget title and set it here
+                getActionBar().setTitle(mBudgetName);
                 invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
             }
 
@@ -122,19 +143,17 @@ public class BudgetActivity extends FragmentActivity implements NewBudgetDialog.
     @Override
     public boolean onKeyUp(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
-            try {
-                getFragmentManager().popBackStack();
-            } catch (NullPointerException e) {
+            if (getFragmentManager().getBackStackEntryCount() == 0)
                 finish();
-            } finally {
-                return true;
-            }
+            getFragmentManager().popBackStack();
+            return true;
         }
         return super.onKeyUp(keyCode, event);
     }
 
 	@Override
 	public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
         // TODO save the position of the selected budget
 	}
 
@@ -168,8 +187,11 @@ public class BudgetActivity extends FragmentActivity implements NewBudgetDialog.
         Bundle args = new Bundle();
         args.putLong(BudgetFragment.BUDGET_ID, id);
         fragment.setArguments(args);
+//        mBudgetName = fragment.getBudgetName();
         getFragmentManager().beginTransaction()
                 .replace(R.id.container, fragment)
                 .commit();
+        loadBudgets();
+        mDrawerList.setAdapter(new BudgetArrayAdapter(mBudgets, this));
 	}
 }

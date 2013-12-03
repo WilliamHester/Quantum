@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="me.williamhester.Quantum.MoneyPickerView">
+        <attr name="textSize"
+            format="integer" />
+    </declare-styleable>
+</resources>

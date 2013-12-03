@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:money="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/location_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:orientation="horizontal" >
+
+        <EditText
+            android:id="@+id/location"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/location"
+            android:textSize="22sp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/memo_layout"
+        android:layout_below="@id/location_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:orientation="horizontal" >
+
+        <EditText
+            android:id="@+id/memo"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/memo"/>
+
+    </LinearLayout>
+
+    <me.williamhester.Quantum.MoneyPickerView
+        android:id="@+id/money_picker_view"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_below="@id/memo_layout"
+        money:textSize="36"
+        />
+
+    <View
+        android:id="@+id/buttons_spacer"
+        android:layout_below="@id/money_picker_view"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray" />
+
+    <LinearLayout
+        android:layout_below="@id/buttons_spacer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp" >
+
+        <Button
+            style="@style/dialpad_ampm"
+            android:id="@+id/cancel"
+            android:text="@string/cancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/dark_gray"
+            android:textSize="14sp"
+            android:textAllCaps="false"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/gray" />
+
+        <Button
+            style="@style/dialpad_ampm"
+            android:id="@+id/delete_button"
+            android:text="@string/delete"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/dark_gray"
+            android:textSize="14sp"
+            android:textAllCaps="false"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/gray"/>
+
+        <Button
+            style="@style/dialpad"
+            android:id="@+id/save"
+            android:text="@string/save"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/dark_gray"
+            android:textSize="14sp"
+            android:textAllCaps="false"/>
+    </LinearLayout>
+</RelativeLayout>
