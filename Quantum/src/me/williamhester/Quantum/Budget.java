@@ -15,6 +15,17 @@ public class Budget {
 	private long mId;
 	private String mName;
 
+    public Budget() {
+        mId = -1;
+        mName = "Dummy Budget";
+        mBudget = 10000;
+        mCurrentBudget = 5000;
+        mSurplus = 0;
+        mIntervalType = -1;
+        mLastInterval = -1;
+        mIterateOn = -1;
+    }
+
 	public Budget(Cursor cursor) {
         mId = cursor.getLong(0);
         mName = cursor.getString(1);

@@ -29,7 +29,6 @@ class BudgetFragment extends Fragment {
     public final static String BUDGET_ID = "position number";
 
     private Budget mBudget;
-    private BudgetFragment mThis = this;
     private BudgetViewer mBudgetViewer;
     private Context mContext;
     private List<Transaction> mTransactions;
@@ -38,20 +37,18 @@ class BudgetFragment extends Fragment {
     private View mNumbersHeader;
     private View mButtonsHeader;
 
+    @Deprecated
+    public BudgetFragment() {
+        this(new Budget());
+    }
+
+    public BudgetFragment(Budget b) {
+        mBudget = b;
+    }
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		long id = 0;
-        try {
-            id = getArguments().getLong(BUDGET_ID);
-        } catch (NullPointerException e) {
-            // Need to find something to do if a budget is not selected.
-        }
-
-		BudgetDataSource data = new BudgetDataSource(getActivity());
-		data.open();
-		mBudget = data.getBudgetFromId(id);
-		data.close();
 
 		TransactionDataSource trans = new TransactionDataSource(getActivity(), mBudget.getId());
 		trans.open();
@@ -60,7 +57,7 @@ class BudgetFragment extends Fragment {
 
         if (getActivity() != null && getActivity().getActionBar() != null) {
             getActivity().getActionBar().setDisplayHomeAsUpEnabled(true);
-            getActivity().getActionBar().setTitle(mBudget.toString());
+            setActionBarTitle(mBudget.toString());
         }
 
         mBudgetViewer = new BudgetViewer(mBudget);
@@ -143,6 +140,10 @@ class BudgetFragment extends Fragment {
         public void onValueSet(int value) {
             if (value != 0) {
                 mBudget.budgetEdit(value);
+                BudgetDataSource data = new BudgetDataSource(getActivity());
+                data.open();
+                data.setCurrentBudget(mBudget.getId(), mBudget.getCurrentBudget());
+                data.close();
                 updateDisplayedBudget();
                 addTransaction(value, "");
             }
@@ -153,10 +154,6 @@ class BudgetFragment extends Fragment {
                 toast.show();
 
                 StatisticsFragment fragment = new StatisticsFragment();
-                Bundle args = new Bundle();
-                args.putInt(BudgetActivity.POSITION_NUMBER,
-                        getArguments().getInt(BudgetActivity.POSITION_NUMBER));
-                fragment.setArguments(args);
                 getFragmentManager().beginTransaction().addToBackStack("BudgetFragment")
                         .replace(R.id.container, fragment).commit();
             }
@@ -274,22 +271,13 @@ class BudgetFragment extends Fragment {
         Button quickSpend = (Button) mButtonsHeader.findViewById(R.id.quick_spend_button);
         quickSpend.setTypeface(slabReg);
     }
-    
+
     private void setUpList() {
         TransactionArrayAdapter adapter = new TransactionArrayAdapter(mContext, mTransactions);
     	mList.setAdapter(adapter);
     }
-
-    public String getBudgetName() {
-        return mBudget.getName();
-    }
 	
 	private void updateDisplayedBudget() {
-        BudgetDataSource data = new BudgetDataSource(getActivity());
-        data.open();
-        data.setCurrentBudget(mBudget.getId(), mBudget.getCurrentBudget());
-        data.close();
-
         float opacity = mBudgetViewer.calculateOpacity();
         mBudgetViewer.processBudgetViewer();
 
@@ -310,9 +298,25 @@ class BudgetFragment extends Fragment {
     private GenericCallback transactionCallback = new GenericCallback() {
         @Override
         public void callback() {
+            BudgetDataSource data = new BudgetDataSource(getActivity());
+            data.open();
+            mBudget.setCurrentBudget(data.getCurrentBudgetFromId(mBudget.getId()));
+            data.close();
             updateDisplayedBudget();
             loadList();
             setUpList();
         }
     };
+
+    private void setActionBarTitle(String title) {
+        LayoutInflater inflater = (LayoutInflater)
+                getActivity().getSystemService(getActivity().LAYOUT_INFLATER_SERVICE);
+        View v = inflater.inflate(R.layout.titleview, null);
+        TextView titleView = (TextView) v.findViewById(R.id.title);
+        Typeface slabReg =
+                Typeface.createFromAsset(getActivity().getAssets(), "fonts/RobotoSlab-Regular.ttf");
+        titleView.setTypeface(slabReg);
+        titleView.setText(title);
+        getActivity().getActionBar().setCustomView(v);
+    }
 }

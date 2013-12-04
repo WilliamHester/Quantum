@@ -21,6 +21,10 @@ public class SettingsContainerActivity extends Activity {
         getFragmentManager().beginTransaction()
                 .replace(R.id.container, prefs)
                 .commit();
+        if (getActionBar() != null) {
+            getActionBar().setDisplayShowCustomEnabled(true);
+            getActionBar().setDisplayShowTitleEnabled(false);
+        }
     }
 
     @Override

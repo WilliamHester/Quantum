@@ -21,11 +21,9 @@ public class StatisticsFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        int id = getArguments().getInt(BudgetActivity.POSITION_NUMBER);
-
         BudgetDataSource data = new BudgetDataSource(getActivity());
         data.open();
-        mBudget = data.getAllBudgets().get(id);
+//        mBudget = data.getAllBudgets().get(id);
         data.close();
 
         TransactionDataSource trans = new TransactionDataSource(getActivity(), mBudget.getId());
