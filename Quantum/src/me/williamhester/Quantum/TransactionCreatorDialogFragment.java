@@ -3,12 +3,12 @@ package me.williamhester.Quantum;
 import android.app.DialogFragment;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 /**
  * Created by William on 12/2/13.
@@ -33,6 +33,7 @@ public class TransactionCreatorDialogFragment extends DialogFragment {
      * Creates a new fragment to make a transaction
      *
      * @param budgetId the Id of the buget that the transaction is being created for
+     * @param callback the trigger to update the fragment.
      */
     public TransactionCreatorDialogFragment(long budgetId, GenericCallback callback) {
         mCallback = callback;
@@ -58,15 +59,11 @@ public class TransactionCreatorDialogFragment extends DialogFragment {
         setStyle(STYLE_NO_TITLE, android.R.style.Theme_Holo_Light_Dialog);
         if (mTransaction == null) {
             mTransaction = new Transaction(0, "", "", "");
+            // Set the id of the transaction to -1 in the case that we created a new
+            // Transaction, so we know that in order to assign the value, we need to write
+            // the transaction to a database.
             mTransaction.setId(-1);
         }
-        try {
-            getActivity().getActionBar().setTitle(R.string.new_transaction);
-            getActivity().getActionBar().setDisplayHomeAsUpEnabled(true);
-        } catch (NullPointerException e) {
-            Log.e("NPE", "Could not find either activity or ActionBar");
-        }
-        setHasOptionsMenu(true);
     }
 
     @Override
@@ -85,11 +82,8 @@ public class TransactionCreatorDialogFragment extends DialogFragment {
         mMemo.setMaxLines(2);
         mMoneyPicker = (MoneyPickerView) v.findViewById(R.id.money_picker_view);
         mCancel = (Button) v.findViewById(R.id.cancel);
-//        mCancel.setTypeface(slabReg);
         mDelete = (Button) v.findViewById(R.id.delete_button);
-//        mCancel.setTypeface(slabReg);
         mSave = (Button) v.findViewById(R.id.save);
-//        mSave.setTypeface(slabReg);
         setUpButtons();
 
         mLocation.setText(mTransaction.getLocationName());
@@ -129,8 +123,8 @@ public class TransactionCreatorDialogFragment extends DialogFragment {
         mSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                saveTransaction();
                 updateBudget();
+                saveTransaction();
                 mCallback.callback();
                 dismiss();
             }
@@ -145,13 +139,15 @@ public class TransactionCreatorDialogFragment extends DialogFragment {
                 mTransaction = new Transaction(mMoneyPicker.getValue(),
                         mLocation.getText().toString(), mMemo.getText().toString(), "");
                 transData.createTransaction(mTransaction);
+                Toast.makeText(getActivity(), "Created Transaction", Toast.LENGTH_LONG);
             }
         } else {
             if (mMoneyPicker.getValue() != mInitialDollars && mMoneyPicker.getValue() != 0) {
                 transData.editTransactionValue(mMoneyPicker.getValue(), mTransaction.getId());
             }
             if (!mLocation.getText().toString().equals(mInitialLocation)) {
-                transData.editTransactionLocation(mLocation.getText().toString(), mTransaction.getId());
+                transData.editTransactionLocation(mLocation.getText().toString(),
+                        mTransaction.getId());
             }
             if (!mMemo.getText().toString().equals(mInitialMemo)) {
                 transData.editTransactionMemo(mMemo.getText().toString(), mTransaction.getId());

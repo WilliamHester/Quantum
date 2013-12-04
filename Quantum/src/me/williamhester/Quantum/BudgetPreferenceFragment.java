@@ -3,13 +3,17 @@ package me.williamhester.Quantum;
 import android.app.AlertDialog;
 import android.app.FragmentManager;
 import android.content.DialogInterface;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 /**
  * Created by William Hester on 8/4/13.
@@ -48,7 +52,7 @@ public class BudgetPreferenceFragment extends PreferenceFragment {
 
         if (getActivity().getActionBar() != null) {
             getActivity().getActionBar().setDisplayHomeAsUpEnabled(true);
-            getActivity().getActionBar().setTitle(mBudget.toString() + " Settings");
+            setActionBarTitle(mBudget.toString() + " Settings");
         }
 
         loadPrefs();
@@ -238,4 +242,16 @@ public class BudgetPreferenceFragment extends PreferenceFragment {
             data.close();
         }
     };
+
+    private void setActionBarTitle(String title) {
+        LayoutInflater inflater = (LayoutInflater)
+                getActivity().getSystemService(getActivity().LAYOUT_INFLATER_SERVICE);
+        View v = inflater.inflate(R.layout.titleview, null);
+        TextView titleView = (TextView) v.findViewById(R.id.title);
+        Typeface slabReg =
+                Typeface.createFromAsset(getActivity().getAssets(), "fonts/RobotoSlab-Regular.ttf");
+        titleView.setTypeface(slabReg);
+        titleView.setText(title);
+        getActivity().getActionBar().setCustomView(v);
+    }
 }

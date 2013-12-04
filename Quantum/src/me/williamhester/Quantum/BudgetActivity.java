@@ -2,9 +2,13 @@ package me.williamhester.Quantum;
 
 import android.annotation.SuppressLint;
 import android.app.ActionBar;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.FragmentActivity;
@@ -12,10 +16,12 @@ import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
@@ -24,7 +30,7 @@ import java.util.List;
 public class BudgetActivity extends FragmentActivity implements BudgetCreatorDialogFragment.OnCreateNewBudget {
 
 	public final static String FIRST_TIME = "First time";
-    public final static String POSITION_NUMBER = "position number";
+    public final static String BUDGET_INDEX = "Budget Index";
 
     private ActionBarDrawerToggle mDrawerToggle;
     private ActionBar mAction;
@@ -32,6 +38,7 @@ public class BudgetActivity extends FragmentActivity implements BudgetCreatorDia
     private List<Budget> mBudgets;
     private ListView mDrawerList;
     private String mBudgetName;
+    private int mBudgetIndex;
 
 	private static SharedPreferences prefs;
 
@@ -39,6 +46,9 @@ public class BudgetActivity extends FragmentActivity implements BudgetCreatorDia
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.container);
+
+//        if (savedInstanceState != null)
+//            mBudgetIndex = savedInstanceState.getInt(BUDGET_INDEX, 0);
 
         prefs = getSharedPreferences("preferences", MODE_PRIVATE);
         boolean firstTime = prefs.getBoolean(FIRST_TIME, true);
@@ -48,41 +58,77 @@ public class BudgetActivity extends FragmentActivity implements BudgetCreatorDia
     		startActivity(i);
         }
 
-        loadBudgets();
-        checkForRollover();
-
         mAction = getActionBar();
 		if (mAction != null) {
-            mAction.setDisplayShowTitleEnabled(true);
+            mAction.setDisplayShowTitleEnabled(false);
             mAction.setDisplayHomeAsUpEnabled(false);
+            mAction.setDisplayShowCustomEnabled(true);
         }
 
-        Bundle b = new Bundle();
-        b.putLong(BudgetFragment.BUDGET_ID, mBudgets.get(0).getId());
-        BudgetFragment fragment = new BudgetFragment();
-        fragment.setArguments(b);
-        getFragmentManager().beginTransaction()
-                .replace(R.id.container, fragment)
-                .commit();
-//        if (fragment != null)
-//            mBudgetName = fragment.getBudgetName();
-
+        final Context context = this;
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
-        mDrawerList.setAdapter(new BudgetArrayAdapter(mBudgets, this));
+        mDrawerList.setLongClickable(true);
         mDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Bundle b = new Bundle();
-                b.putLong(BudgetFragment.BUDGET_ID,
-                        ((Budget) adapterView.getItemAtPosition(i)).getId());
-                BudgetFragment fragment = new BudgetFragment();
-                fragment.setArguments(b);
+                mBudgetIndex = i;
+                BudgetFragment fragment =
+                        new BudgetFragment(((Budget) adapterView.getItemAtPosition(i)));
                 getFragmentManager().beginTransaction()
                         .replace(R.id.container, fragment)
                         .commit();
                 mDrawerLayout.closeDrawer(Gravity.LEFT);
-//                mBudgetName = fragment.getBudgetName();
+                mBudgetName = mBudgets.get(mBudgetIndex).getName();
+            }
+        });
+        mDrawerList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                final int k = i;
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setMessage(R.string.delete_selected_budget);
+                builder.setTitle(R.string.delete_budget_title);
+                builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int j) {
+
+                    }
+                });
+                builder.setPositiveButton(R.string.confirm, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int j) {
+                        if (mBudgets.size() == 1) {
+                            AlertDialog.Builder error =
+                                    new AlertDialog.Builder(context);
+                            error.setTitle(R.string.error);
+                            error.setMessage(R.string.budget_delete_error);
+                            error.setNegativeButton(R.string.okay, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+
+                                }
+                            });
+                            error.create().show();
+                        } else {
+                            BudgetDataSource data = new BudgetDataSource(context);
+                            data.open();
+                            data.deleteBudget(mBudgets.get(k).getId());
+                            data.close();
+                            TransactionDataSource trans =
+                                    new TransactionDataSource(context,
+                                    mBudgets.get(k).getId());
+                            trans.delete();
+                            if (k == mBudgetIndex) {
+                                mBudgetIndex = 0;
+                            }
+                            loadBudgets();
+                            loadData();
+                        }
+                    }
+                });
+                builder.create().show();
+                return false;
             }
         });
         
@@ -90,13 +136,13 @@ public class BudgetActivity extends FragmentActivity implements BudgetCreatorDia
                 R.drawable.ic_navigation_drawer, R.string.drawer_open, R.string.drawer_close) {
             /** Called when a drawer has settled in a completely closed state. */
             public void onDrawerClosed(View view) {
-                getActionBar().setTitle(mBudgetName);
+                setActionBarTitle(mBudgetName);
                 invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
             }
 
             /** Called when a drawer has settled in a completely open state. */
             public void onDrawerOpened(View drawerView) {
-                getActionBar().setTitle(getString(R.string.budgets));
+                setActionBarTitle(getString(R.string.budgets));
                 invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
             }
         };
@@ -115,11 +161,15 @@ public class BudgetActivity extends FragmentActivity implements BudgetCreatorDia
         mDrawerToggle.syncState();
     }
 
-
     @Override
     public void onResume() {
         super.onResume();
         mAction.show();
+        loadBudgets();
+        if (mBudgets.size() > 0) {
+            checkForRollover();
+            loadData();
+        }
     }
 
     @Override
@@ -153,8 +203,8 @@ public class BudgetActivity extends FragmentActivity implements BudgetCreatorDia
 
 	@Override
 	public void onSaveInstanceState(Bundle outState) {
+//        outState.putInt(BUDGET_INDEX, mBudgetIndex);
         super.onSaveInstanceState(outState);
-        // TODO save the position of the selected budget
 	}
 
     private void loadBudgets() {
@@ -162,6 +212,18 @@ public class BudgetActivity extends FragmentActivity implements BudgetCreatorDia
         data.open();
         mBudgets = data.getAllBudgets();
         data.close();
+    }
+
+    /**
+     * Reloads all of the data and the fragment.
+     */
+    private void loadData() {
+        mDrawerList.setAdapter(new BudgetArrayAdapter(mBudgets, this));
+        BudgetFragment fragment = new BudgetFragment(mBudgets.get(mBudgetIndex));
+        getFragmentManager().beginTransaction()
+                .replace(R.id.container, fragment)
+                .commit();
+        mBudgetName = mBudgets.get(mBudgetIndex).getName();
     }
     
     public static void notFirstTime() {
@@ -183,15 +245,25 @@ public class BudgetActivity extends FragmentActivity implements BudgetCreatorDia
     }
 
 	public void onCreateNewBudget(long id) {
-        BudgetFragment fragment = new BudgetFragment();
-        Bundle args = new Bundle();
-        args.putLong(BudgetFragment.BUDGET_ID, id);
-        fragment.setArguments(args);
-//        mBudgetName = fragment.getBudgetName();
+        loadBudgets();
+        mBudgetIndex = mBudgets.size() - 1;
+        BudgetFragment fragment = new BudgetFragment(mBudgets.get(mBudgetIndex));
+        mBudgetName = mBudgets.get(mBudgetIndex).getName();
         getFragmentManager().beginTransaction()
                 .replace(R.id.container, fragment)
                 .commit();
-        loadBudgets();
         mDrawerList.setAdapter(new BudgetArrayAdapter(mBudgets, this));
+        mDrawerLayout.closeDrawer(Gravity.LEFT);
 	}
+
+    private void setActionBarTitle(String title) {
+        LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+        View v = inflater.inflate(R.layout.titleview, null);
+        TextView titleView = (TextView) v.findViewById(R.id.title);
+        Typeface slabReg = Typeface.createFromAsset(getAssets(), "fonts/RobotoSlab-Regular.ttf");
+        titleView.setTypeface(slabReg);
+        titleView.setText(title);
+        mAction.setCustomView(v);
+    }
+
 }
