@@ -8,9 +8,11 @@ buildscript {
 }
 apply plugin: 'android'
 
+repositories {
+    mavenCentral()
+}
+
 dependencies {
-//    This broke the build.
-//    compile fileTree(dir: 'libs', include: '*.jar')
     compile "com.android.support:support-v4:19.0.+"
     compile "com.android.support:appcompat-v7:19.0.+"
 }
@@ -42,4 +44,50 @@ android {
         debug.setRoot('build-types/debug')
         release.setRoot('build-types/release')
     }
+    signingConfigs {
+        release {
+            release {
+                storeFile  file('C:/Users/William/Documents/Quantum Stuff/quantum-release-key.keystore')
+                //leave blank to fill in later
+                storePassword  "tanksauce24"
+                keyAlias 'quantum_keys'
+                //leave blank to fill in later
+                keyPassword  "wardamnandroid34"
+            }
+        }
+
+        buildTypes {
+            release {
+                debuggable false
+                signingConfig signingConfigs.release
+            }
+        }
+    }
 }
+//signs keystore only for releases
+//task release << {
+//    android.signingConfigs.release.storePassword = new String(System.console().readPassword("\nKeystore Password: "))
+//    android.signingConfigs.release.keyPassword = new String(System.console().readPassword("Key Password: "))
+//}
+
+//uses git tags to tag each release and keep track of version code and name
+//e.g. 21v1.4.3
+//task tag << {
+//    String lastTag = 'git describe --tags'.execute().text.trim()
+//    def vc = lastTag.split("v")[0].toInteger()
+//    def vn = lastTag.split("v")[1]
+//    def newVersion = new String(System.console().readLine("\nEnter a new version (last: ${vn}): "))
+//    "git tag ${++vc}v${newVersion}".execute()
+//    android.defaultConfig.versionCode = vc
+//    android.defaultConfig.versionName = newVersion
+//}
+
+//tasks.whenTaskAdded { assembleRelease ->
+//    if (assembleRelease.name.equals("packageRelease")) {
+//        assembleRelease.dependsOn "release"
+//    }
+//    //only tag if keystore passes
+//    if (assembleRelease.name.equals("zipalignRelease")) {
+//        assembleRelease.dependsOn "tag"
+//    }
+//}

@@ -80,6 +80,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+<<<<<<< HEAD
       <file leaf-file-name="BudgetFragment.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/me/williamhester/Quantum/BudgetFragment.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -87,10 +88,29 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+=======
+      <file leaf-file-name="BudgetActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/me/williamhester/Quantum/BudgetActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="274" column="49" selection-start="10647" selection-end="10647" vertical-scroll-proportion="0.0" vertical-offset="4078" max-vertical-offset="4675">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="BudgetFragment.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/me/williamhester/Quantum/BudgetFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="97" column="56" selection-start="2977" selection-end="2977" vertical-scroll-proportion="0.0" vertical-offset="1649" max-vertical-offset="5576">
+              <folding />
+>>>>>>> Gradle Fixes
+            </state>
+          </provider>
+        </entry>
+      </file>
+<<<<<<< HEAD
       <file leaf-file-name="titleview.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/res/layout/titleview.xml">
           <provider selected="true" editor-type-id="text-editor">
@@ -101,6 +121,42 @@
           <provider editor-type-id="android-designer">
             <state />
           </provider>
+=======
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="3" column="28" selection-start="164" selection-end="164" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="816">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="build.gradle" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="49" column="41" selection-start="1432" selection-end="1432" vertical-scroll-proportion="0.4509284" vertical-offset="663" max-vertical-offset="1666">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StatisticsFragment.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/me/williamhester/Quantum/StatisticsFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="28" column="0" selection-start="712" selection-end="712" vertical-scroll-proportion="0.0" vertical-offset="476" max-vertical-offset="952">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DrawerToggle.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/me/williamhester/Quantum/DrawerToggle.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="25" selection-start="134" selection-end="134" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="238">
+              <folding />
+            </state>
+          </provider>
+>>>>>>> Gradle Fixes
         </entry>
       </file>
     </leaf>
@@ -469,7 +525,11 @@
     <option name="modificationStamps">
       <map>
         <entry key="$PROJECT_DIR$" value="1383784896361" />
+<<<<<<< HEAD
         <entry key="C:\Users\William\Documents\GitHub\Quantum\Quantum" value="1386186084795" />
+=======
+        <entry key="C:\Users\William\Documents\GitHub\Quantum\Quantum" value="1386184990868" />
+>>>>>>> Gradle Fixes
         <entry key="D:\workspace\Quantum" value="1383798350854" />
       </map>
     </option>
@@ -490,6 +550,7 @@
         <option value="$PROJECT_DIR$/src/me/williamhester/Quantum/GenericCallback.java" />
         <option value="$PROJECT_DIR$/src/me/williamhester/Quantum/TransactionCreatorDialogFragment.java" />
         <option value="$PROJECT_DIR$/res/layout/transaction_creator_dialog_fragment.xml" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/src/me/williamhester/Quantum/SettingsContainerActivity.java" />
         <option value="$PROJECT_DIR$/src/me/williamhester/Quantum/DrawerToggle.java" />
         <option value="$PROJECT_DIR$/build.gradle" />
@@ -511,6 +572,18 @@
         <option value="$PROJECT_DIR$/src/me/williamhester/Quantum/MoneyView.java" />
         <option value="$PROJECT_DIR$/src/me/williamhester/Quantum/StatisticsFragment.java" />
         <option value="$PROJECT_DIR$/res/layout/titleview.xml" />
+=======
+        <option value="$PROJECT_DIR$/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/res/layout/titleview.xml" />
+        <option value="$PROJECT_DIR$/src/me/williamhester/Quantum/SettingsContainerActivity.java" />
+        <option value="$PROJECT_DIR$/src/me/williamhester/Quantum/BudgetPreferenceFragment.java" />
+        <option value="$PROJECT_DIR$/res/menu/budget_fragment_menu.xml" />
+        <option value="$PROJECT_DIR$/res/values/styles_quantum.xml" />
+        <option value="$PROJECT_DIR$/src/me/williamhester/Quantum/BudgetFragment.java" />
+        <option value="$PROJECT_DIR$/src/me/williamhester/Quantum/DrawerToggle.java" />
+        <option value="$PROJECT_DIR$/src/me/williamhester/Quantum/BudgetActivity.java" />
+        <option value="$PROJECT_DIR$/build.gradle" />
+>>>>>>> Gradle Fixes
       </list>
     </option>
   </component>
@@ -547,6 +620,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -592,7 +666,10 @@
     <property name="ExportedApkPath" value="C:\Users\William\Documents\GitHub\Quantum\Quantum\Quantum.apk" />
     <property name="AndroidRunProguardForReleaseBuild" value="true" />
     <property name="AndroidProguardConfigPaths" value="C:\Program Files (x86)\Android\android-studio\sdk\tools\proguard\proguard-android.txt" />
+<<<<<<< HEAD
     <property name="extract.method.default.visibility" value="private" />
+=======
+>>>>>>> Gradle Fixes
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -638,19 +715,6 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method />
-    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -676,6 +740,19 @@
       <envs />
       <properties />
       <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -821,17 +898,25 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32852808" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3275862" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+=======
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32833335" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+>>>>>>> Gradle Fixes
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943144" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="true" content_ui="tabs" />
+<<<<<<< HEAD
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31438127" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33946487" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+=======
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32441473" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943144" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+>>>>>>> Gradle Fixes
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -844,6 +929,7 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32852808" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32833335" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -865,6 +951,7 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/res/drawable-hdpi/ab_solid_quantum.9.png">
       <provider editor-type-id="images">
         <state />
@@ -913,6 +1000,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510" />
       </provider>
+=======
+    <entry file="file://$PROJECT_DIR$/res/layout/budget_launcher.xml">
+>>>>>>> Gradle Fixes
       <provider editor-type-id="android-designer">
         <state />
       </provider>
@@ -930,6 +1020,7 @@
         <state line="6" column="40" selection-start="236" selection-end="236" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="272" />
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/res/layout/container_activity.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1" column="0" selection-start="39" selection-end="39" vertical-scroll-proportion="0.04857143" vertical-offset="0" max-vertical-offset="350" />
@@ -941,6 +1032,22 @@
     <entry file="file://$PROJECT_DIR$/src/me/williamhester/Quantum/TransactionInfoFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="101" column="36" selection-start="3561" selection-end="3707" vertical-scroll-proportion="0.0" vertical-offset="2600" max-vertical-offset="2975" />
+=======
+    <entry file="file://$PROJECT_DIR$/res/drawable-hdpi/ab_solid_quantum.9.png">
+      <provider editor-type-id="images">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="ninepatcheditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/drawable-hdpi/ab_bottom_solid_quantum.9.png">
+      <provider editor-type-id="images">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="ninepatcheditor">
+        <state />
+>>>>>>> Gradle Fixes
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/me/williamhester/Quantum/MoneyPickerDialogFragment.java">
@@ -975,6 +1082,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/me/williamhester/Quantum/GenericCallback.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="27" selection-start="139" selection-end="139" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="238" />
@@ -983,6 +1091,11 @@
     <entry file="file://$PROJECT_DIR$/src/me/williamhester/Quantum/BudgetSQLHelper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="13" selection-start="287" selection-end="287" vertical-scroll-proportion="0.18133333" vertical-offset="0" max-vertical-offset="1309" />
+=======
+    <entry file="file://$PROJECT_DIR$/res/layout/budget_launcher.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+>>>>>>> Gradle Fixes
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/me/williamhester/Quantum/BudgetDataSource.java">
@@ -1010,12 +1123,19 @@
         <state line="26" column="9" selection-start="901" selection-end="901" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765" />
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/res/drawable/item_background.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/drawable/ic_backspace.xml">
+=======
+    <entry file="file://$PROJECT_DIR$/res/layout/container_activity.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+>>>>>>> Gradle Fixes
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="4" selection-start="113" selection-end="113" vertical-scroll-proportion="0.09066667" vertical-offset="0" max-vertical-offset="375" />
       </provider>
@@ -1067,6 +1187,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/res/values/styles.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="60" column="52" selection-start="2962" selection-end="2962" vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="1173">
@@ -1075,6 +1196,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/values/arrays.xml">
+=======
+    <entry file="file://$PROJECT_DIR$/src/me/williamhester/Quantum/MoneyPickerView.java">
+>>>>>>> Gradle Fixes
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-2.2760417" vertical-offset="874" max-vertical-offset="1258">
           <folding />
@@ -1113,6 +1237,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="67" column="9" selection-start="2352" selection-end="2352" vertical-scroll-proportion="0.0" vertical-offset="3985" max-vertical-offset="4539">
           <folding>
+<<<<<<< HEAD
             <element signature="e#2718#3335#0" expanded="true" />
             <element signature="e#3324#3325#0" expanded="true" />
             <element signature="e#3385#5821#0" expanded="true" />
@@ -1129,6 +1254,10 @@
             <element signature="e#5945#5965#0" expanded="true" />
             <element signature="e#5967#5988#0" expanded="true" />
             <element signature="e#6444#6471#0" expanded="true" />
+=======
+            <element signature="e#3379#3804#0" expanded="false" />
+            <element signature="e#3793#3794#0" expanded="false" />
+>>>>>>> Gradle Fixes
           </folding>
         </state>
       </provider>
@@ -1142,6 +1271,17 @@
       <provider editor-type-id="android-designer">
         <state />
       </provider>
+<<<<<<< HEAD
+=======
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="58" column="40" selection-start="1910" selection-end="1910" vertical-scroll-proportion="0.32" vertical-offset="874" max-vertical-offset="1853">
+          <folding>
+            <element signature="e#2579#2595#0" expanded="false" />
+            <element signature="e#3111#3125#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+>>>>>>> Gradle Fixes
     </entry>
     <entry file="file://$PROJECT_DIR$/src/me/williamhester/Quantum/BudgetArrayAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1159,6 +1299,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/me/williamhester/Quantum/BudgetSetup.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="127" column="33" selection-start="5665" selection-end="5665" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2380">
@@ -1167,6 +1308,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/me/williamhester/Quantum/MoneyPickerView.java">
+=======
+    <entry file="file://$PROJECT_DIR$/src/me/williamhester/Quantum/Budget.java">
+>>>>>>> Gradle Fixes
       <provider selected="true" editor-type-id="text-editor">
         <state line="95" column="46" selection-start="3544" selection-end="3544" vertical-scroll-proportion="0.0" vertical-offset="4103" max-vertical-offset="4675">
           <folding />
@@ -1194,6 +1338,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/me/williamhester/Quantum/Budget.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="0" selection-start="397" selection-end="397" vertical-scroll-proportion="-0.24661246" vertical-offset="363" max-vertical-offset="2618">
@@ -1206,10 +1351,86 @@
         <state line="278" column="0" selection-start="10267" selection-end="10267" vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="4641">
           <folding>
             <element signature="imports" expanded="true" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/me/williamhester/Quantum/SettingsContainerActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="9" selection-start="901" selection-end="901" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/values/styles.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="68" selection-start="1482" selection-end="1482" vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="1173">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/drawable/item_background.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/drawable/ic_backspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="4" selection-start="113" selection-end="113" vertical-scroll-proportion="0.09066667" vertical-offset="0" max-vertical-offset="375" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/drawable/btn_cab_done_quantum.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.496" vertical-offset="186" max-vertical-offset="561" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/drawable/ab_background_textured_quantum.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/drawable/selectable_background_quantum.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/values/styles_quantum.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="87" selection-start="884" selection-end="884" vertical-scroll-proportion="0.29066667" vertical-offset="248" max-vertical-offset="1496">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/menu/budget_fragment_menu.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="51" selection-start="251" selection-end="251" vertical-scroll-proportion="0.22666667" vertical-offset="0" max-vertical-offset="375">
+          <folding>
+            <element signature="e#174#199#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/williamhester/Quantum/BudgetPreferenceFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="63" column="57" selection-start="1836" selection-end="1836" vertical-scroll-proportion="-3.7146666" vertical-offset="2243" max-vertical-offset="3876">
+          <folding>
+            <element signature="e#5082#5102#0" expanded="true" />
+            <element signature="e#5346#5367#0" expanded="true" />
+            <element signature="e#5398#5425#0" expanded="true" />
+            <element signature="e#5465#5477#0" expanded="true" />
+            <element signature="e#6263#6278#0" expanded="true" />
+            <element signature="e#6655#6676#0" expanded="true" />
+            <element signature="e#6707#6724#0" expanded="true" />
+            <element signature="e#6764#6776#0" expanded="true" />
+            <element signature="e#7185#7200#0" expanded="true" />
+            <element signature="e#7591#7612#0" expanded="true" />
+            <element signature="e#7643#7670#0" expanded="true" />
+            <element signature="e#7710#7722#0" expanded="true" />
+            <element signature="e#8187#8202#0" expanded="true" />
+            <element signature="e#9015#9046#0" expanded="true" />
+>>>>>>> Gradle Fixes
+          </folding>
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/res/layout/titleview.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="21" column="51" selection-start="769" selection-end="769" vertical-scroll-proportion="0.60465115" vertical-offset="149" max-vertical-offset="493">
@@ -1218,6 +1439,50 @@
       </provider>
       <provider editor-type-id="android-designer">
         <state />
+=======
+    <entry file="file://$PROJECT_DIR$/src/me/williamhester/Quantum/DrawerToggle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="25" selection-start="134" selection-end="134" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="238">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/williamhester/Quantum/BudgetFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="97" column="56" selection-start="2977" selection-end="2977" vertical-scroll-proportion="0.0" vertical-offset="3093" max-vertical-offset="5151">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="28" selection-start="164" selection-end="164" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="816">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/williamhester/Quantum/StatisticsFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="0" selection-start="712" selection-end="712" vertical-scroll-proportion="0.0" vertical-offset="232" max-vertical-offset="833">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/williamhester/Quantum/BudgetActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="274" column="49" selection-start="10647" selection-end="10647" vertical-scroll-proportion="0.0" vertical-offset="4078" max-vertical-offset="4675">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+>>>>>>> Gradle Fixes
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="41" selection-start="1432" selection-end="1432" vertical-scroll-proportion="0.4509284" vertical-offset="663" max-vertical-offset="1666">
+          <folding />
+        </state>
       </provider>
     </entry>
   </component>

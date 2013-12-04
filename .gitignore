@@ -1,5 +1,7 @@
 # For privacy purposes
 Quantum/build.gradle
+Quantum/.gradle/
+Quantum/.idea/
 build.gradle
 #################
 ## Eclipse
