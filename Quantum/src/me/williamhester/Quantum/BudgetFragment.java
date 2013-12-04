@@ -95,7 +95,7 @@ class BudgetFragment extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-
+                ((DrawerToggle) getActivity()).toggle();
                 return true;
             case R.id.budget_management:
                 Bundle b = new Bundle();

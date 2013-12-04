@@ -62,7 +62,6 @@ public class BudgetPreferenceFragment extends PreferenceFragment {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
         switch (item.getItemId()) {
             case android.R.id.home:
                 if (getFragmentManager().getBackStackEntryCount() == 0)

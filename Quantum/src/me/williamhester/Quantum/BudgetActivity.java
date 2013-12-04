@@ -27,7 +27,8 @@ import android.widget.Toast;
 import java.util.List;
 
 @SuppressLint("WorldReadableFiles")
-public class BudgetActivity extends FragmentActivity implements BudgetCreatorDialogFragment.OnCreateNewBudget {
+public class BudgetActivity extends FragmentActivity implements
+        BudgetCreatorDialogFragment.OnCreateNewBudget, DrawerToggle {
 
 	public final static String FIRST_TIME = "First time";
     public final static String BUDGET_INDEX = "Budget Index";
@@ -264,6 +265,15 @@ public class BudgetActivity extends FragmentActivity implements BudgetCreatorDia
         titleView.setTypeface(slabReg);
         titleView.setText(title);
         mAction.setCustomView(v);
+    }
+
+    @Override
+    public void toggle() {
+        if (mDrawerLayout.isDrawerOpen(Gravity.LEFT)) {
+            mDrawerLayout.closeDrawer(Gravity.LEFT);
+        } else {
+            mDrawerLayout.openDrawer(Gravity.LEFT);
+        }
     }
 
 }

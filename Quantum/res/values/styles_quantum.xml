@@ -20,7 +20,6 @@
 <resources>
 
     <style name="Theme.Quantum" parent="@android:style/Theme.Holo.Light.DarkActionBar">
-        <item name="android:actionBarItemBackground">@drawable/selectable_background_quantum</item>
         <item name="android:popupMenuStyle">@style/PopupMenu.Quantum</item>
         <item name="android:dropDownListViewStyle">@style/DropDownListView.Quantum</item>
         <item name="android:actionBarTabStyle">@style/ActionBarTabStyle.Quantum</item>
@@ -29,6 +28,7 @@
         <item name="android:actionModeBackground">@drawable/cab_background_top_quantum</item>
         <item name="android:actionModeSplitBackground">@drawable/cab_background_bottom_quantum</item>
         <item name="android:actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Quantum</item>
+        <item name="android:actionBarItemBackground">@drawable/item_background</item>
 
         <!-- Light.DarkActionBar specific -->
         <item name="android:actionBarWidgetTheme">@style/Theme.Quantum.Widget</item>
