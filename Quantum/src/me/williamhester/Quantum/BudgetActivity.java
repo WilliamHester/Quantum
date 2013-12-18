@@ -41,20 +41,19 @@ public class BudgetActivity extends FragmentActivity implements
     private String mBudgetName;
     private int mBudgetIndex;
 
-	private static SharedPreferences prefs;
+	private static SharedPreferences mPrefs;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.container);
 
+        // TODO fix the savedInstanceState so that it restores the app correctly
 //        if (savedInstanceState != null)
 //            mBudgetIndex = savedInstanceState.getInt(BUDGET_INDEX, 0);
 
-        prefs = getSharedPreferences("preferences", MODE_PRIVATE);
-        boolean firstTime = prefs.getBoolean(FIRST_TIME, true);
-        
-        if (firstTime) {
+        mPrefs = getSharedPreferences("preferences", MODE_PRIVATE);
+        if (mPrefs.getBoolean(FIRST_TIME, true)) {
     		Intent i = new Intent(this, Welcome.class);
     		startActivity(i);
         }
@@ -64,8 +63,16 @@ public class BudgetActivity extends FragmentActivity implements
             mAction.setDisplayShowTitleEnabled(false);
             mAction.setDisplayHomeAsUpEnabled(false);
             mAction.setDisplayShowCustomEnabled(true);
+            mAction.setHomeButtonEnabled(true);
+
+            mAction.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
         }
 
+        setUpBudgetDrawer();
+        setUpViewPager();
+    }
+
+    private void setUpBudgetDrawer() {
         final Context context = this;
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
@@ -132,7 +139,7 @@ public class BudgetActivity extends FragmentActivity implements
                 return false;
             }
         });
-        
+
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
                 R.drawable.ic_navigation_drawer, R.string.drawer_open, R.string.drawer_close) {
             /** Called when a drawer has settled in a completely closed state. */
@@ -150,9 +157,6 @@ public class BudgetActivity extends FragmentActivity implements
 
         // Set the drawer toggle as the DrawerListener
         mDrawerLayout.setDrawerListener(mDrawerToggle);
-
-        mAction.setDisplayHomeAsUpEnabled(true);
-        mAction.setHomeButtonEnabled(true);
     }
 
     @Override
@@ -205,7 +209,7 @@ public class BudgetActivity extends FragmentActivity implements
 	@Override
 	public void onSaveInstanceState(Bundle outState) {
 //        outState.putInt(BUDGET_INDEX, mBudgetIndex);
-        super.onSaveInstanceState(outState);
+//        super.onSaveInstanceState(outState);
 	}
 
     private void loadBudgets() {
@@ -228,7 +232,7 @@ public class BudgetActivity extends FragmentActivity implements
     }
     
     public static void notFirstTime() {
-    	SharedPreferences.Editor edit = prefs.edit();
+    	SharedPreferences.Editor edit = mPrefs.edit();
     	edit.putBoolean(FIRST_TIME, false);
     	edit.commit();
     }
@@ -274,6 +278,10 @@ public class BudgetActivity extends FragmentActivity implements
         } else {
             mDrawerLayout.openDrawer(Gravity.LEFT);
         }
+    }
+
+    public void setUpViewPager() {
+
     }
 
 }

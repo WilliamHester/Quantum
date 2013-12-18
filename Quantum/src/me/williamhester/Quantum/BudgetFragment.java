@@ -120,21 +120,6 @@ class BudgetFragment extends Fragment {
         setUpList();
 	}
 
-    public TransactionEditorDialogFragment.TransactionEditorListener mTransactionDeletedCallback
-            = new TransactionEditorDialogFragment.TransactionEditorListener() {
-        @Override
-        public void onDeleteTransaction(int position) {
-            TransactionDataSource tranSource = new TransactionDataSource(mContext, mBudget.getId());
-            tranSource.open();
-            tranSource.deleteTransaction(mTransactions.get(position));
-            tranSource.close();
-            mBudget.budgetEdit(mTransactions.get(position).getDollars() * -1);
-            mTransactions.remove(position);
-            updateDisplayedBudget();
-            setUpList();
-        }
-    };
-
     private MoneyPickerDialogHandler mMoneySpentListener = new MoneyPickerDialogHandler() {
         @Override
         public void onValueSet(int value) {
@@ -211,27 +196,6 @@ class BudgetFragment extends Fragment {
                 editBudget();
             }
         });
-
-//        mList.setLongClickable(true);
-//        mList.setOnItemLongClickListener(new OnItemLongClickListener() {
-//            @Override
-//            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                FragmentManager fm = getFragmentManager();
-//                TransactionEditorDialogFragment editor
-//                        = new TransactionEditorDialogFragment(mTransactionDeletedCallback);
-//                Bundle args = new Bundle();
-//                args.putLong(TransactionEditorDialogFragment.BUDGET_ID, mBudget.getId());
-//                args.putLong(TransactionEditorDialogFragment.TRANSACTION_ID,
-//                        ((Transaction) adapterView.getItemAtPosition(i)).getId());
-//                args.putInt(TransactionEditorDialogFragment.TRANSACTION_VALUE,
-//                        ((Transaction) adapterView.getItemAtPosition(i)).getDollars());
-//                args.putInt(TransactionEditorDialogFragment.POSITION, i);
-//                editor.setArguments(args);
-//                editor.setTargetFragment(mThis, 0);
-//                editor.show(fm, "fragment_transaction_editor");
-//                return true;
-//            }
-//        });
         mList.setClickable(true);
         mList.setOnItemClickListener(new OnItemClickListener() {
             @Override
@@ -309,14 +273,17 @@ class BudgetFragment extends Fragment {
     };
 
     private void setActionBarTitle(String title) {
-        LayoutInflater inflater = (LayoutInflater)
-                getActivity().getSystemService(getActivity().LAYOUT_INFLATER_SERVICE);
-        View v = inflater.inflate(R.layout.titleview, null);
-        TextView titleView = (TextView) v.findViewById(R.id.title);
-        Typeface slabReg =
-                Typeface.createFromAsset(getActivity().getAssets(), "fonts/RobotoSlab-Regular.ttf");
-        titleView.setTypeface(slabReg);
-        titleView.setText(title);
-        getActivity().getActionBar().setCustomView(v);
+        if (getActivity() != null) {
+            LayoutInflater inflater = (LayoutInflater)
+                    getActivity().getSystemService(getActivity().LAYOUT_INFLATER_SERVICE);
+            View v = inflater.inflate(R.layout.titleview, null);
+            TextView titleView = (TextView) v.findViewById(R.id.title);
+            Typeface slabReg =
+                    Typeface.createFromAsset(getActivity().getAssets(), "fonts/RobotoSlab-Regular.ttf");
+            titleView.setTypeface(slabReg);
+            titleView.setText(title);
+            if (getActivity().getActionBar() != null)
+                getActivity().getActionBar().setCustomView(v);
+        }
     }
 }
