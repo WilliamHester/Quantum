@@ -1,7 +1,6 @@
 package me.williamhester.Quantum;
 
 import android.app.DialogFragment;
-import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -16,18 +15,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Calendar;
+import java.util.Scanner;
 
 public class BudgetCreatorDialogFragment extends DialogFragment {
-
-    private Fragment mLauncher;
-
-    public BudgetCreatorDialogFragment() {
-        this(null);
-    }
-
-    public BudgetCreatorDialogFragment(Fragment launcher) {
-        mLauncher = launcher;
-    }
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -103,11 +93,15 @@ public class BudgetCreatorDialogFragment extends DialogFragment {
 				final String name = budgetName.getText().toString().trim();
 				final String value = budgetValue.getText().toString();
 				
-				if (!name.isEmpty() && !value.isEmpty()
-						&& numberIsValid(value)) {
-					// Retrieve the input, because it has now been validated
-					final int budget = (int) (Double.parseDouble(budgetValue.getText()
-							.toString()) * 100);
+				if (!name.isEmpty() && !value.isEmpty() && numberIsValid(value)) {
+                    Scanner num = new Scanner(budgetValue.getText().toString()).useDelimiter("\\.");
+                    int dollars = Integer.parseInt(num.next()) * 100;
+                    int cents = 0;
+                    if (num.hasNext()) {
+                        cents = Integer.parseInt(num.next());
+                        cents = (int) (cents / (Math.pow(10, ((int) Math.log10(cents)) - 1)));
+                    }
+                    final int budget = dollars + cents;
 
                     int subInterval = subIntervalSelector.getSelectedItemPosition();
 

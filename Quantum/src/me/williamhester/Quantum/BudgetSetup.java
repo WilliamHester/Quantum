@@ -13,8 +13,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Calendar;
+import java.util.Scanner;
 
 public class BudgetSetup extends Fragment {
 
@@ -99,10 +101,15 @@ public class BudgetSetup extends Fragment {
 				final String name = budgetName.getText().toString().trim();
 				final String value = budgetValue.getText().toString();
 				
-				if (!name.isEmpty() && !value.isEmpty()
-						&& numberIsValid(value)) {
-					final int budget = (int) Double.parseDouble(budgetValue.getText()
-							.toString()) * 100;
+				if (!name.isEmpty() && !value.isEmpty() && numberIsValid(value)) {
+                    Scanner num = new Scanner(budgetValue.getText().toString()).useDelimiter("\\.");
+                    int dollars = Integer.parseInt(num.next()) * 100;
+                    int cents = 0;
+                    if (num.hasNext()) {
+                        cents = Integer.parseInt(num.next());
+                        cents = (int) (cents / (Math.pow(10, ((int) Math.log10(cents)) - 1)));
+                    }
+					final int budget = dollars + cents;
 
                     int subInterval = subIntervalSelector.getSelectedItemPosition();
 
@@ -130,7 +137,10 @@ public class BudgetSetup extends Fragment {
 					Intent i = new Intent(getActivity(), BudgetActivity.class);
 					i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 					startActivity(i);
-				} else {
+				} else if (!numberIsValid(budgetValue.getText().toString())) {
+                    Toast.makeText(getActivity(), getActivity().getResources()
+                            .getText(R.string.error_invalid_number), Toast.LENGTH_LONG);
+                } else {
 					requirement.setVisibility(TextView.VISIBLE);
 				}
 			}

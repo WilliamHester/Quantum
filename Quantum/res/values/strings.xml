@@ -88,6 +88,7 @@
     <string name="remaining">remaining</string>
     <string name="budget_delete_error">Cannot delete budget. You must have at least one.</string>
     <string name="okay">Okay</string>
+    <string name="error_invalid_number">Please enter a valid number.</string>
 
     <string name="drawer_open">Drawer Open</string>
     <string name="drawer_close">Drawer Close</string>
