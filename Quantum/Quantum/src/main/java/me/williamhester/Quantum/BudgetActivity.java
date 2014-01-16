@@ -279,11 +279,7 @@ public class BudgetActivity extends FragmentActivity implements
         }
     }
 
-<<<<<<< HEAD
     public void setUpViewPager() {
 
     }
-
-=======
->>>>>>> Gradle Fixes
 }

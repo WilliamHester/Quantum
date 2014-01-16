@@ -29,7 +29,6 @@ class BudgetFragment extends Fragment {
     public final static String BUDGET_ID = "position number";
 
     private Budget mBudget;
-    private BudgetFragment mThis = this;
     private BudgetViewer mBudgetViewer;
     private Context mContext;
     private List<Transaction> mTransactions;

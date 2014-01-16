@@ -3,9 +3,9 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
-        <option name="distributionType" value="WRAPPED" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="gradleHome" value="$USER_HOME$/AppData/Local/Gradle/gradle-1.9/bin/gradle.exe" />
+        <option name="distributionType" value="LOCAL" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/gradle" />
+        <option name="gradleHome" value="$USER_HOME$/AppData/Local/Gradle/gradle-1.8" />
       </GradleProjectSettings>
     </option>
   </component>
