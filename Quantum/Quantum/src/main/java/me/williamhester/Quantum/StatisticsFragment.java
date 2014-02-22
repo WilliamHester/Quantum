@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import java.util.List;
 
@@ -21,17 +20,17 @@ public class StatisticsFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        BudgetDataSource data = new BudgetDataSource(getActivity());
-        data.open();
+//        BudgetDataSource data = new BudgetDataSource(getActivity());
+//        data.open();
 //        mBudget = data.getAllBudgets().get(id);
-        data.close();
+//        data.close();
 
-        TransactionDataSource trans = new TransactionDataSource(getActivity(), mBudget.getId());
-        trans.open();
-        mTransactions = trans.getAllTransactionsReverse();
-        data.close();
+//        TransactionDataSource trans = new TransactionDataSource(getActivity(), mBudget.getId());
+//        trans.open();
+//        mTransactions = trans.getAllTransactionsReverse();
+//        data.close();
 
-        mStatistics = new Statistics(mTransactions);
+//        mStatistics = new Statistics(mTransactions);
     }
 
     @Override
@@ -39,10 +38,10 @@ public class StatisticsFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.statistics_fragment, container, false);
         if (v != null) {
-            TextView averageDaily = (TextView) v.findViewById(R.id.average_spent_daily);
-            TextView averageWeekly = (TextView) v.findViewById(R.id.average_spent_weekly);
-            averageDaily.setText("$" + -1 * mStatistics.getAverageSpentPerDay());
-            averageWeekly.setText("$" + -1 * mStatistics.getAverageSpentPerWeek());
+//            TextView averageDaily = (TextView) v.findViewById(R.id.average_spent_daily);
+//            TextView averageWeekly = (TextView) v.findViewById(R.id.average_spent_weekly);
+//            averageDaily.setText("$" + -1 * mStatistics.getAverageSpentPerDay());
+//            averageWeekly.setText("$" + -1 * mStatistics.getAverageSpentPerWeek());
         }
         return v;
     }

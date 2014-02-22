@@ -1,7 +1,6 @@
 package me.williamhester.Quantum;
 
 import android.app.ActionBar;
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -11,6 +10,7 @@ import android.content.res.Configuration;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
@@ -18,18 +18,24 @@ import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
 
-public class BudgetActivity extends Activity implements
+/**
+ * Created by William on 1/26/14.
+ */
+public class BudgetActivity2 extends FragmentActivity implements
         BudgetCreatorDialogFragment.OnCreateNewBudget, DrawerToggle {
 
-	public final static String FIRST_TIME = "First time";
+    public final static String FIRST_TIME = "First time";
     public final static String BUDGET_INDEX = "Budget Index";
     public final static String VIEW_PAGER_INDEX = "View pager index";
 
@@ -45,7 +51,7 @@ public class BudgetActivity extends Activity implements
     private int mBudgetIndex;
     private int mViewPagerIndex;
 
-	private static SharedPreferences mPrefs;
+    private static SharedPreferences mPrefs;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -58,16 +64,16 @@ public class BudgetActivity extends Activity implements
             mViewPagerIndex = 0;
         }
 
-        setContentView(R.layout.container);
+        setContentView(R.layout.budget_fragment_activity);
 
         mPrefs = getSharedPreferences("preferences", MODE_PRIVATE);
         if (mPrefs.getBoolean(FIRST_TIME, true)) {
-    		Intent i = new Intent(this, Welcome.class);
-    		startActivity(i);
+            Intent i = new Intent(this, Welcome.class);
+            startActivity(i);
         }
 
         mAction = getActionBar();
-		if (mAction != null) {
+        if (mAction != null) {
             mAction.setDisplayShowTitleEnabled(false);
             mAction.setDisplayHomeAsUpEnabled(false);
             mAction.setDisplayShowCustomEnabled(true);
@@ -78,6 +84,7 @@ public class BudgetActivity extends Activity implements
 
         mViewPager = (ViewPager) findViewById(R.id.view_pager);
 
+        setActionBarCustomView();
         setUpBudgetDrawer();
     }
 
@@ -94,9 +101,10 @@ public class BudgetActivity extends Activity implements
                 Bundle args = new Bundle();
                 args.putInt(BudgetFragment.BUDGET_POSITION_IN_LIST, mBudgetIndex);
                 fragment.setArguments(args);
-                getFragmentManager().beginTransaction()
-                        .replace(R.id.container, fragment)
-                        .commit();
+                // Todo uncomment what is below
+//                getFragmentManager().beginTransaction()
+//                        .replace(R.id.container, fragment)
+//                        .commit();
                 mDrawerLayout.closeDrawer(Gravity.LEFT);
                 mBudgetName = mBudgets.get(mBudgetIndex).getName();
             }
@@ -136,7 +144,7 @@ public class BudgetActivity extends Activity implements
                             data.close();
                             TransactionDataSource trans =
                                     new TransactionDataSource(context,
-                                    mBudgets.get(k).getId());
+                                            mBudgets.get(k).getId());
                             trans.delete();
                             if (k == mBudgetIndex) {
                                 mBudgetIndex = 0;
@@ -155,13 +163,13 @@ public class BudgetActivity extends Activity implements
                 R.drawable.ic_navigation_drawer, R.string.drawer_open, R.string.drawer_close) {
             /** Called when a drawer has settled in a completely closed state. */
             public void onDrawerClosed(View view) {
-                setActionBarTitle(mBudgetName);
+                setActionBarCustomView();
                 invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
             }
 
             /** Called when a drawer has settled in a completely open state. */
             public void onDrawerOpened(View drawerView) {
-                setActionBarTitle(getString(R.string.budgets));
+                setActionBarTitle(R.string.budgets);
                 invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
             }
         };
@@ -189,6 +197,35 @@ public class BudgetActivity extends Activity implements
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.budget_fragment_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                toggle();
+                return true;
+            case R.id.budget_management:
+                Bundle b = new Bundle();
+                b.putLong(SettingsContainerActivity.BUDGET_ID, mBudgets.get(mBudgetIndex).getId());
+                Intent i = new Intent(this, SettingsContainerActivity.class);
+                i.putExtras(b);
+                startActivity(i);
+                return true;
+            case R.id.add_new_budget:
+                BudgetCreatorDialogFragment bc = new BudgetCreatorDialogFragment();
+                bc.show(getFragmentManager(), "BudgetCreator");
+                return true;
+            default:
+                return false;
+        }
+    }
+
+    @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         // If the nav drawer is open, hide action items related to the content view
         boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
@@ -201,7 +238,7 @@ public class BudgetActivity extends Activity implements
         return super.onPrepareOptionsMenu(menu);
     }
     @Override
-     public void onConfigurationChanged(Configuration newConfig) {
+    public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         mDrawerToggle.onConfigurationChanged(newConfig);
     }
@@ -217,12 +254,12 @@ public class BudgetActivity extends Activity implements
         return super.onKeyUp(keyCode, event);
     }
 
-	@Override
-	public void onSaveInstanceState(Bundle outState) {
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putInt(BUDGET_INDEX, mBudgetIndex);
         outState.putInt(VIEW_PAGER_INDEX, mViewPagerIndex);
-	}
+    }
 
     private void loadBudgets() {
         BudgetDataSource data = new BudgetDataSource(this);
@@ -240,51 +277,76 @@ public class BudgetActivity extends Activity implements
         Bundle args = new Bundle();
         args.putInt(BudgetFragment.BUDGET_POSITION_IN_LIST, mBudgetIndex);
         fragment.setArguments(args);
-        getFragmentManager().beginTransaction()
-                .replace(R.id.container, fragment)
-                .commit();
+        // Todo: uncomment below
+//        getFragmentManager().beginTransaction()
+//                .replace(R.id.container, fragment)
+//                .commit();
         mBudgetName = mBudgets.get(mBudgetIndex).getName();
     }
-    
+
     public static void notFirstTime() {
-    	SharedPreferences.Editor edit = mPrefs.edit();
-    	edit.putBoolean(FIRST_TIME, false);
-    	edit.commit();
+        SharedPreferences.Editor edit = mPrefs.edit();
+        edit.putBoolean(FIRST_TIME, false);
+        edit.commit();
     }
-    
+
     public void checkForRollover() {
-    	BudgetDataSource data = new BudgetDataSource(this);
-    	data.open();
-    	for (Budget b : mBudgets) {
+        BudgetDataSource data = new BudgetDataSource(this);
+        data.open();
+        for (Budget b : mBudgets) {
             if (b.isNextInterval()) {
                 b.rollover(data);
                 Toast.makeText(this, b.getName() + " rolling over", Toast.LENGTH_SHORT).show();
             }
-    	}
-    	data.close();
+        }
+        data.close();
     }
 
-	public void onCreateNewBudget(long id) {
+    public void onCreateNewBudget(long id) {
         loadBudgets();
         mBudgetIndex = mBudgets.size() - 1;
         BudgetFragment fragment = new BudgetFragment();
         Bundle args = new Bundle();
         args.putInt(BudgetFragment.BUDGET_POSITION_IN_LIST, mBudgetIndex);
         fragment.setArguments(args);
-        getFragmentManager().beginTransaction()
-                .replace(R.id.container, fragment)
-                .commit();
+        // Todo uncomment below
+//        getFragmentManager().beginTransaction()
+//                .replace(R.id.container, fragment)
+//                .commit();
         mDrawerList.setAdapter(new BudgetArrayAdapter(mBudgets, this));
         mDrawerLayout.closeDrawer(Gravity.LEFT);
-	}
+    }
 
-    private void setActionBarTitle(String title) {
+    private void setActionBarTitle(int string) {
         LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
         View v = inflater.inflate(R.layout.titleview, null);
-        TextView titleView = (TextView) v.findViewById(R.id.title);
+        TextView title = (TextView) v.findViewById(R.id.title);
+        title.setText(string);
         Typeface slabReg = Typeface.createFromAsset(getAssets(), "fonts/RobotoSlab-Regular.ttf");
-        titleView.setTypeface(slabReg);
-        titleView.setText(title);
+        title.setTypeface(slabReg);
+        mAction.setCustomView(v);
+    }
+
+    private void setActionBarCustomView() {
+        LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+        Typeface slabReg = Typeface.createFromAsset(getAssets(), "fonts/RobotoSlab-Regular.ttf");
+        View v = inflater.inflate(R.layout.titleview2, null);
+        mTabView = (TabView) v.findViewById(R.id.tabs);
+        mTabView.attachViewPager(mViewPager);
+        Bundle args = new Bundle();
+        args.putInt(BudgetFragment.BUDGET_POSITION_IN_LIST, mBudgetIndex);
+        TextView tv1 = new TextView(this);
+        tv1.setText("Tiger Card");
+        tv1.setTextSize(20);
+        tv1.setTextColor(getResources().getColor(R.color.ghostwhite));
+        tv1.setTypeface(slabReg);
+        ImageView iv = new ImageView(this);
+        ImageView iv2 = new ImageView(this);
+        iv.setImageDrawable(getResources().getDrawable(R.drawable.ic_launcher2));
+        iv2.setImageDrawable(getResources().getDrawable(R.drawable.ic_launcher2));
+        mTabView.addTab(BudgetFragment.class, args, TabView.TAB_TYPE_MAIN, tv1);
+        mTabView.addTab(StatisticsFragment.class, args, TabView.TAB_TYPE_MINOR, iv);
+        mTabView.addTab(StatisticsFragment.class, args, TabView.TAB_TYPE_MINOR, iv2);
         mAction.setCustomView(v);
     }
 

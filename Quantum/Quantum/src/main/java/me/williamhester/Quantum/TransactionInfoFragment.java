@@ -88,7 +88,7 @@ public class TransactionInfoFragment extends Fragment {
             case android.R.id.home:
                 BudgetFragment fragment = new BudgetFragment();
                 Bundle args = new Bundle();
-                args.putLong(BudgetFragment.BUDGET_ID, mBudgetId);
+                args.putLong(BudgetFragment.BUDGET_POSITION_IN_LIST, mBudgetId);
                 fragment.setArguments(args);
 //                getFragmentManager().beginTransaction()
 //                        .replace(R.id.frame_container, fragment)

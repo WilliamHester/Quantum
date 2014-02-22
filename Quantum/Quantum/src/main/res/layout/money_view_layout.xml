@@ -35,7 +35,7 @@
             	style="@style/medium_light"
             	android:textColor="@color/dark_gray"
             	android:textIsSelectable="false" />
-           <TextView
+            <TextView
             	android:id="@+id/tens"
             	android:singleLine="true"
             	android:layout_width="wrap_content"

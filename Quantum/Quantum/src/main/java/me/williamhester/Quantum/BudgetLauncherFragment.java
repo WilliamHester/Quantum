@@ -91,7 +91,7 @@ public class BudgetLauncherFragment extends Fragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 BudgetFragment fragment = new BudgetFragment();
                 Bundle args = new Bundle();
-                args.putLong(BudgetFragment.BUDGET_ID, ((Budget) adapterView.getItemAtPosition(position)).getId());
+                args.putLong(BudgetFragment.BUDGET_POSITION_IN_LIST, ((Budget) adapterView.getItemAtPosition(position)).getId());
                 fragment.setArguments(args);
                 try {
 //                    getFragmentManager().beginTransaction()

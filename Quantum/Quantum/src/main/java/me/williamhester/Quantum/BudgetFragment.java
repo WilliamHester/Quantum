@@ -7,8 +7,6 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -24,10 +22,11 @@ import java.util.List;
 
 import me.williamhester.Quantum.MoneyPickerDialogFragment.MoneyPickerDialogHandler;
 
-class BudgetFragment extends Fragment {
+public class BudgetFragment extends Fragment {
 
-    public final static String BUDGET_ID = "position number";
+    public final static String BUDGET_POSITION_IN_LIST = "budgetPositionInList";
 
+    private int mBudgetPosition;
     private Budget mBudget;
     private BudgetViewer mBudgetViewer;
     private Context mContext;
@@ -37,18 +36,23 @@ class BudgetFragment extends Fragment {
     private View mNumbersHeader;
     private View mButtonsHeader;
 
-    @Deprecated
-    public BudgetFragment() {
-        this(new Budget());
-    }
-
-    public BudgetFragment(Budget b) {
-        mBudget = b;
-    }
-
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+        Bundle args = getArguments();
+        if (savedInstanceState != null) {
+            mBudgetPosition = savedInstanceState.getInt(BUDGET_POSITION_IN_LIST, 0);
+        } else if (args != null) {
+            mBudgetPosition = args.getInt(BUDGET_POSITION_IN_LIST);
+        } else {
+            mBudgetPosition = 0;
+        }
+
+        BudgetDataSource budgetDataSource = new BudgetDataSource(getActivity());
+        budgetDataSource.open();
+        List<Budget> budgetList = budgetDataSource.getAllBudgets();
+        budgetDataSource.close();
+        mBudget = budgetList.get(mBudgetPosition);
 
 		TransactionDataSource trans = new TransactionDataSource(getActivity(), mBudget.getId());
 		trans.open();
@@ -64,7 +68,7 @@ class BudgetFragment extends Fragment {
 
         mContext = getActivity();
 
-        setHasOptionsMenu(true);
+//        setHasOptionsMenu(true);
 	}
 
 	@Override
@@ -85,11 +89,11 @@ class BudgetFragment extends Fragment {
 		return view;
 	}
 
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.budget_fragment_menu, menu);
-        super.onCreateOptionsMenu(menu, inflater);
-    }
+//    @Override
+//    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+//        inflater.inflate(R.menu.budget_fragment_menu, menu);
+//        super.onCreateOptionsMenu(menu, inflater);
+//    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -107,6 +111,7 @@ class BudgetFragment extends Fragment {
             case R.id.add_new_budget:
                 BudgetCreatorDialogFragment bc = new BudgetCreatorDialogFragment();
                 bc.show(getFragmentManager(), "BudgetCreator");
+                return true;
             default:
                 return false;
         }
@@ -119,6 +124,12 @@ class BudgetFragment extends Fragment {
         loadList();
         setUpList();
 	}
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt(BUDGET_POSITION_IN_LIST, mBudgetPosition);
+    }
 
     private MoneyPickerDialogHandler mMoneySpentListener = new MoneyPickerDialogHandler() {
         @Override
@@ -139,8 +150,8 @@ class BudgetFragment extends Fragment {
                 toast.show();
 
                 StatisticsFragment fragment = new StatisticsFragment();
-                getFragmentManager().beginTransaction().addToBackStack("BudgetFragment")
-                        .replace(R.id.container, fragment).commit();
+//                getFragmentManager().beginTransaction().addToBackStack("BudgetFragment")
+//                        .replace(R.id.container, fragment).commit();
             }
         }
     };
@@ -272,17 +283,22 @@ class BudgetFragment extends Fragment {
     };
 
     private void setActionBarTitle(String title) {
+        // Temporary disabling
+        if (false) {
         if (getActivity() != null) {
             LayoutInflater inflater = (LayoutInflater)
                     getActivity().getSystemService(getActivity().LAYOUT_INFLATER_SERVICE);
             View v = inflater.inflate(R.layout.titleview, null);
-            TextView titleView = (TextView) v.findViewById(R.id.title);
-            Typeface slabReg =
-                    Typeface.createFromAsset(getActivity().getAssets(), "fonts/RobotoSlab-Regular.ttf");
-            titleView.setTypeface(slabReg);
-            titleView.setText(title);
-            if (getActivity().getActionBar() != null)
+//            TextView titleView = (TextView) v.findViewById(R.id.title);
+//            Typeface slabReg =
+//                    Typeface.createFromAsset(getActivity().getAssets(), "fonts/RobotoSlab-Regular.ttf");
+//            titleView.setTypeface(slabReg);
+//            titleView.setText(title);
+            TabView tabs = (TabView) v.findViewById(R.id.tabs);
+            if (getActivity().getActionBar() != null) {
                 getActivity().getActionBar().setCustomView(v);
+            }
+        }
         }
     }
 }

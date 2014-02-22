@@ -13,7 +13,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
 
 /**
  * Created by William Hester on 8/4/13.
@@ -245,11 +244,11 @@ public class BudgetPreferenceFragment extends PreferenceFragment {
         LayoutInflater inflater = (LayoutInflater)
                 getActivity().getSystemService(getActivity().LAYOUT_INFLATER_SERVICE);
         View v = inflater.inflate(R.layout.titleview, null);
-        TextView titleView = (TextView) v.findViewById(R.id.title);
+//        TextView titleView = (TextView) v.findViewById(R.id.title);
         Typeface slabReg =
                 Typeface.createFromAsset(getActivity().getAssets(), "fonts/RobotoSlab-Regular.ttf");
-        titleView.setTypeface(slabReg);
-        titleView.setText(title);
+//        titleView.setTypeface(slabReg);
+//        titleView.setText(title);
         getActivity().getActionBar().setCustomView(v);
     }
 }
