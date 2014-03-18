@@ -43,7 +43,6 @@ public class BudgetFragment extends Fragment {
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-
         try {
             mDrawerToggle = (DrawerToggle) activity;
         } catch (ClassCastException e) {

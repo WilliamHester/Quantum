@@ -78,8 +78,6 @@ public class BudgetActivity2 extends FragmentActivity implements
             mAction.setDisplayHomeAsUpEnabled(false);
             mAction.setDisplayShowCustomEnabled(true);
             mAction.setHomeButtonEnabled(true);
-//            mAction.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-//            mAction.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         }
 
         mViewPager = (ViewPager) findViewById(R.id.view_pager);
@@ -241,17 +239,6 @@ public class BudgetActivity2 extends FragmentActivity implements
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         mDrawerToggle.onConfigurationChanged(newConfig);
-    }
-
-    @Override
-    public boolean onKeyUp(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            if (getFragmentManager().getBackStackEntryCount() == 0)
-                finish();
-            getFragmentManager().popBackStack();
-            return true;
-        }
-        return super.onKeyUp(keyCode, event);
     }
 
     @Override
