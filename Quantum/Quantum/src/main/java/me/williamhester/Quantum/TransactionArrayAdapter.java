@@ -38,7 +38,7 @@ public class TransactionArrayAdapter extends ArrayAdapter<Transaction> {
         Typeface slabReg = Typeface.createFromAsset(mContext.getAssets(), "fonts/RobotoSlab-Regular.ttf");
         TextView menu = (TextView) rowView.findViewById(R.id.memo_text);
 
-        double dollars = (double) mTransactions.get(position).getDollars() / 100;
+        double dollars = (double) mTransactions.get(position).getValue() / 100;
         if (dollars < 0) {
             moneySpent.setTextColor(mContext.getResources().getColor(R.color.dark_green));
             String text = "+" + new DecimalFormat("#####0.00").format(-1 * dollars);

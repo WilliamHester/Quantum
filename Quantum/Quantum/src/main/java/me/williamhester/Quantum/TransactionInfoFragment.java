@@ -66,7 +66,7 @@ public class TransactionInfoFragment extends Fragment {
         location.setTypeface(slabReg);
         memo.setTypeface(slabReg);
 
-        if (mTransaction.getDollars() > 0) {
+        if (mTransaction.getValue() > 0) {
             value.setTextColor(getResources().getColor(R.color.red));
         } else {
             value.setTextColor(getResources().getColor(R.color.dark_green));
@@ -110,10 +110,10 @@ public class TransactionInfoFragment extends Fragment {
 
     private String generateValueString() {
         DecimalFormat format = new DecimalFormat("#,##0.00");
-        if (mTransaction.getDollars() > 0) {
-           return "-" + format.format(mTransaction.getDollars() / 100.0);
+        if (mTransaction.getValue() > 0) {
+           return "-" + format.format(mTransaction.getValue() / 100.0);
         }
-        return "+" + format.format(mTransaction.getDollars() / 100.0);
+        return "+" + format.format(mTransaction.getValue() / 100.0);
     }
 
     private String generateText() {
@@ -175,7 +175,7 @@ public class TransactionInfoFragment extends Fragment {
 
     private String getMoneyString() {
         DecimalFormat format = new DecimalFormat("###,##0.00");
-        return format.format((double) mTransaction.getDollars() / 100);
+        return format.format((double) mTransaction.getValue() / 100);
     }
 
 }

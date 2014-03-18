@@ -52,7 +52,7 @@ public class TransactionDataSource {
 
 	public Transaction createTransaction(Transaction t) {
 		ContentValues values = new ContentValues();
-		values.put(TransactionSQLHelper.COLUMN_VALUE, t.getDollars());
+		values.put(TransactionSQLHelper.COLUMN_VALUE, t.getValue());
 		values.put(TransactionSQLHelper.COLUMN_MONTH, t.getMonth());
 		values.put(TransactionSQLHelper.COLUMN_DAY, t.getDayOfMonth());
         values.put(TransactionSQLHelper.COLUMN_YEAR, t.getYear());

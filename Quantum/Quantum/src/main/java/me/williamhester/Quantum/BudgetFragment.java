@@ -1,11 +1,13 @@
 package me.williamhester.Quantum;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -30,11 +32,25 @@ public class BudgetFragment extends Fragment {
     private Budget mBudget;
     private BudgetViewer mBudgetViewer;
     private Context mContext;
+    private DrawerToggle mDrawerToggle;
     private List<Transaction> mTransactions;
     private ListView mList;
+    private TransactionArrayAdapter mTransactionAdapter;
 	private TextView mDollarsView, mCentsView;
     private View mNumbersHeader;
     private View mButtonsHeader;
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+
+        try {
+            mDrawerToggle = (DrawerToggle) activity;
+        } catch (ClassCastException e) {
+            Log.e("ClassCastException", "BudgetFragment's hosting activity does not implement"
+                    + " DrawerToggle");
+        }
+    }
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -74,8 +90,7 @@ public class BudgetFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-		View view;
-        view = inflater.inflate(R.layout.budget_fragment_2, container, false);
+		View view = inflater.inflate(R.layout.budget_fragment_2, container, false);
 
         mList = (ListView) view.findViewById(R.id.transactions);
         mNumbersHeader = view.findViewById(R.id.budget_amount);
@@ -83,7 +98,7 @@ public class BudgetFragment extends Fragment {
 
         mDollarsView = (TextView) mNumbersHeader.findViewById(R.id.dollars_view);
         mCentsView = (TextView) mNumbersHeader.findViewById(R.id.cents_view);
-        setUpList();
+        mTransactionAdapter = new TransactionArrayAdapter(mContext, mTransactions);
         setOnClicks();
         setFonts();
 		return view;
@@ -99,7 +114,7 @@ public class BudgetFragment extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                ((DrawerToggle) getActivity()).toggle();
+                mDrawerToggle.toggle();
                 return true;
             case R.id.budget_management:
                 Bundle b = new Bundle();
@@ -122,7 +137,6 @@ public class BudgetFragment extends Fragment {
 		super.onResume();
 		updateDisplayedBudget();
         loadList();
-        setUpList();
 	}
 
     @Override
@@ -176,7 +190,7 @@ public class BudgetFragment extends Fragment {
         tranSource.open();
         mTransactions.add(0, tranSource.createTransaction(tran));
         tranSource.close();
-        setUpList();
+        mTransactionAdapter.notifyDataSetChanged();
     }
 
     private void setOnClicks() {
@@ -245,11 +259,6 @@ public class BudgetFragment extends Fragment {
         Button quickSpend = (Button) mButtonsHeader.findViewById(R.id.quick_spend_button);
         quickSpend.setTypeface(slabReg);
     }
-
-    private void setUpList() {
-        TransactionArrayAdapter adapter = new TransactionArrayAdapter(mContext, mTransactions);
-    	mList.setAdapter(adapter);
-    }
 	
 	private void updateDisplayedBudget() {
         float opacity = mBudgetViewer.calculateOpacity();
@@ -269,16 +278,45 @@ public class BudgetFragment extends Fragment {
         viewCents.setAlpha(opacity);
     }
 
-    private GenericCallback transactionCallback = new GenericCallback() {
+    private TransactionCreatedListener transactionCallback = new TransactionCreatedListener() {
+
         @Override
-        public void callback() {
-            BudgetDataSource data = new BudgetDataSource(getActivity());
-            data.open();
-            mBudget.setCurrentBudget(data.getCurrentBudgetFromId(mBudget.getId()));
-            data.close();
+        public void onCreateTransaction(Transaction transaction) {
+            mBudget.budgetEdit(transaction.getValue());
             updateDisplayedBudget();
-            loadList();
-            setUpList();
+            mTransactions.add(transaction);
+            mTransactionAdapter.notifyDataSetChanged();
+        }
+
+        @Override
+        public void onDeleteTransaction(Transaction transaction) {
+            mBudget.budgetEdit(transaction.getValue() * -1);
+            updateDisplayedBudget();
+            mTransactions.remove(transaction);
+            mTransactionAdapter.notifyDataSetChanged();
+        }
+
+        @Override
+        public void onEditTransaction(Transaction transaction, int changed, Object changedObject) {
+            switch (changed) {
+                case TRANSACTION_VALUE:
+                    mBudget.budgetEdit(-1 * (Integer) changedObject);
+                    updateDisplayedBudget();
+                    mTransactions.get(mTransactions.indexOf(transaction))
+                            .setValue(transaction.getValue());
+                    mTransactionAdapter.notifyDataSetChanged();
+                    break;
+                case TRANSACTION_LOCATION:
+                    mTransactions.get(mTransactions.indexOf(transaction))
+                            .setLocation((String) changedObject);
+                    mTransactionAdapter.notifyDataSetChanged();
+                    break;
+                case TRANSACTION_MEMO:
+                    mTransactions.get(mTransactions.indexOf(transaction))
+                            .setMemo((String) changedObject);
+                    mTransactionAdapter.notifyDataSetChanged();
+                    break;
+            }
         }
     };
 

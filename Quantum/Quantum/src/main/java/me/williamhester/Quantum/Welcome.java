@@ -12,7 +12,8 @@ public class Welcome extends Activity {
 	public void onStart() {
 		super.onStart();
 		ActionBar action = getActionBar();
-		action.hide();
+        if (action != null)
+		    action.hide();
 	}
 	
 	@Override
@@ -21,12 +22,6 @@ public class Welcome extends Activity {
 		
 		getFragmentManager().beginTransaction()
         .replace(android.R.id.content, new WelcomeFragment())
-        .commit();
-	}
-	
-	public void nextFragment(View v) {
-		getFragmentManager().beginTransaction()
-        .replace(android.R.id.content, new BudgetSetup())
         .commit();
 	}
 	

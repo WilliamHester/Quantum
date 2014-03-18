@@ -20,7 +20,7 @@ public class TransactionCreatorDialogFragment extends DialogFragment {
     private Button mCancel;
     private Button mDelete;
     private Button mSave;
-    private GenericCallback mCallback;
+    private TransactionCreatedListener mCallback;
     private MoneyPickerView mMoneyPicker;
     private EditText mLocation;
     private EditText mMemo;
@@ -35,7 +35,7 @@ public class TransactionCreatorDialogFragment extends DialogFragment {
      * @param budgetId the Id of the buget that the transaction is being created for
      * @param callback the trigger to update the fragment.
      */
-    public TransactionCreatorDialogFragment(long budgetId, GenericCallback callback) {
+    public TransactionCreatorDialogFragment(long budgetId, TransactionCreatedListener callback) {
         mCallback = callback;
         mBudgetId = budgetId;
         mInitialDollars = 0;
@@ -44,11 +44,11 @@ public class TransactionCreatorDialogFragment extends DialogFragment {
     }
 
     public TransactionCreatorDialogFragment(long budgetId, Transaction t,
-                                            GenericCallback callback) {
+                                            TransactionCreatedListener callback) {
         mCallback = callback;
         mBudgetId = budgetId;
         mTransaction = t;
-        mInitialDollars = t.getDollars();
+        mInitialDollars = t.getValue();
         mInitialMemo = t.getMemo();
         mInitialLocation = t.getLocationName();
     }
@@ -88,7 +88,7 @@ public class TransactionCreatorDialogFragment extends DialogFragment {
 
         mLocation.setText(mTransaction.getLocationName());
         mMemo.setText(mTransaction.getMemo());
-        mMoneyPicker.setValue(mTransaction.getDollars());
+        mMoneyPicker.setValue(mTransaction.getValue());
         mMoneyPicker.updateView();
 
         return v;
@@ -115,8 +115,8 @@ public class TransactionCreatorDialogFragment extends DialogFragment {
                     transData.open();
                     transData.deleteTransaction(mTransaction);
                     transData.close();
+                    mCallback.onDeleteTransaction(mTransaction);
                 }
-                mCallback.callback();
                 dismiss();
             }
         });
@@ -125,55 +125,43 @@ public class TransactionCreatorDialogFragment extends DialogFragment {
             public void onClick(View view) {
                 updateBudget();
                 saveTransaction();
-                mCallback.callback();
                 dismiss();
             }
         });
     }
 
-    private boolean saveTransaction() {
+    private void saveTransaction() {
         final TransactionDataSource transData = new TransactionDataSource(getActivity(), mBudgetId);
         transData.open();
-        if (mTransaction.getId() == -1) {
-            if (mMoneyPicker.getValue() != 0) {
-                mTransaction = new Transaction(mMoneyPicker.getValue(),
-                        mLocation.getText().toString(), mMemo.getText().toString(), "");
-                transData.createTransaction(mTransaction);
-                Toast.makeText(getActivity(), "Created Transaction", Toast.LENGTH_LONG);
-            }
+        if (mMoneyPicker.getValue() == 0 && mTransaction.getId() != -1) {
+            transData.deleteTransaction(mTransaction);
+            mCallback.onDeleteTransaction(mTransaction);
+        } else if (mMoneyPicker.getValue() != 0 && mTransaction.getId() == -1) {
+            mTransaction = new Transaction(mMoneyPicker.getValue(),
+                    mLocation.getText().toString(), mMemo.getText().toString(), "");
+            transData.createTransaction(mTransaction);
+            Toast.makeText(getActivity(), "Created Transaction", Toast.LENGTH_LONG).show();
+            mCallback.onCreateTransaction(mTransaction);
         } else {
             if (mMoneyPicker.getValue() != mInitialDollars && mMoneyPicker.getValue() != 0) {
                 transData.editTransactionValue(mMoneyPicker.getValue(), mTransaction.getId());
+                mCallback.onEditTransaction(mTransaction,
+                        TransactionCreatedListener.TRANSACTION_VALUE,
+                        mInitialDollars - mMoneyPicker.getValue());
             }
             if (!mLocation.getText().toString().equals(mInitialLocation)) {
                 transData.editTransactionLocation(mLocation.getText().toString(),
                         mTransaction.getId());
+                mCallback.onEditTransaction(mTransaction,
+                        TransactionCreatedListener.TRANSACTION_LOCATION, mLocation);
             }
             if (!mMemo.getText().toString().equals(mInitialMemo)) {
                 transData.editTransactionMemo(mMemo.getText().toString(), mTransaction.getId());
-            }
-            if (mMoneyPicker.getValue() == 0) {
-//                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-//                builder.setTitle(R.string.are_you_sure);
-//                builder.setMessage(R.string.saving_with_a_value_of_0);
-//                builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialogInterface, int i) {
-//
-//                    }
-//                });
-//                builder.setPositiveButton(R.string.confirm, new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialogInterface, int i) {
-                transData.deleteTransaction(mTransaction);
-//                    }
-//                });
-//                builder.create().show();
-
+                mCallback.onEditTransaction(mTransaction,
+                        TransactionCreatedListener.TRANSACTION_MEMO, mMemo);
             }
         }
         transData.close();
-        return false;
     }
 
     private void updateBudget() {

@@ -6,7 +6,7 @@ import java.util.Calendar;
 
 public class Transaction {
 	
-	private int mDayOfMonth, mMonth, mYear, mWeekOfYear, mHour, mMinutes, mDollars, mDayOfYear;
+	private int mDayOfMonth, mMonth, mYear, mWeekOfYear, mHour, mMinutes, mValue, mDayOfYear;
     private String mType, mLocationName, mMemo;
     private long mId;
 
@@ -15,7 +15,7 @@ public class Transaction {
     }
 
     public Transaction(int dollars, String locationName, String memo, String type) {
-        mDollars = dollars;
+        mValue = dollars;
 
         Calendar c = Calendar.getInstance();
         mDayOfMonth = c.get(Calendar.DAY_OF_MONTH);
@@ -32,7 +32,7 @@ public class Transaction {
 	
 	public Transaction(Cursor cursor) {
 		mId = cursor.getLong(0);
-		mDollars = cursor.getInt(1);
+		mValue = cursor.getInt(1);
 		mMonth = cursor.getInt(2);
 		mDayOfMonth = cursor.getInt(3);
         mYear = cursor.getInt(4);
@@ -49,8 +49,8 @@ public class Transaction {
 		return mId;
 	}
 	
-	public int getDollars() {
-		return mDollars;
+	public int getValue() {
+		return mValue;
 	}
 
     public int getMonth() {
@@ -108,7 +108,7 @@ public class Transaction {
 	}
 	
 	public String getTopLineText() {
-		return "" + ((double) mDollars) / 100.0;
+		return "" + ((double) mValue) / 100.0;
 	}
 	
 	public String getBottomLineText() {
@@ -117,5 +117,22 @@ public class Transaction {
 
     public void setId(long id) {
         mId = id;
+    }
+
+    public void setValue(int value) {
+        mValue = value;
+    }
+
+    public void setLocation(String location) {
+        mLocationName = location;
+    }
+
+    public void setMemo(String memo) {
+        mMemo = memo;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        return ((Transaction) o).mId == mId;
     }
 }

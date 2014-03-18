@@ -43,7 +43,7 @@ public class TransactionCreatorFragment extends Fragment {
     public TransactionCreatorFragment(long budgetId, Transaction t) {
         mBudgetId = budgetId;
         mTransaction = t;
-        mInitialDollars = t.getDollars();
+        mInitialDollars = t.getValue();
         mInitialMemo = t.getMemo();
         mInitialLocation = t.getLocationName();
     }
@@ -81,7 +81,7 @@ public class TransactionCreatorFragment extends Fragment {
 
         mLocation.setText(mTransaction.getLocationName());
         mMemo.setText(mTransaction.getMemo());
-        mMoneyPicker.setValue(mTransaction.getDollars());
+        mMoneyPicker.setValue(mTransaction.getValue());
         mMoneyPicker.updateView();
 
         return v;

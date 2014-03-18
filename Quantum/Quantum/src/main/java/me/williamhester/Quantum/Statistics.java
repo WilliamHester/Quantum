@@ -50,7 +50,7 @@ public class Statistics {
     private int getTotalMoneySpent() {
         int dollars = 0;
         for (Transaction t : mTransactions) {
-            dollars += t.getDollars();
+            dollars += t.getValue();
         }
         return dollars;
     }
