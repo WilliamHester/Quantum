@@ -28,15 +28,19 @@ public class TransactionEditorDialogFragment extends DialogFragment {
     private int mTransactionValue, mPosition;
     private TransactionEditorListener mCallback;
 
-    public TransactionEditorDialogFragment(TransactionEditorListener callback) {
-        mCallback = callback;
+    public TransactionEditorDialogFragment() {
+
     }
+
+//    public TransactionEditorDialogFragment(TransactionEditorListener callback) {
+//        mCallback = callback;
+//    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setStyle(STYLE_NORMAL, android.R.style.Theme_Holo_Light_Dialog);
+        setStyle(STYLE_NORMAL, android.R.style.Theme_Material_Dialog);
 
         Bundle args = getArguments();
         mBudgetId = args.getLong(BUDGET_ID);

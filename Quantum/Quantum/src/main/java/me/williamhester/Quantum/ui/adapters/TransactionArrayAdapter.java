@@ -2,7 +2,9 @@ package me.williamhester.Quantum.ui.adapters;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import android.graphics.drawable.RippleDrawable;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -62,6 +64,17 @@ public class TransactionArrayAdapter extends ArrayAdapter<Transaction> {
 
         menu.setText(mTransactions.get(position).getMemo());
         timeSpent.setText(mTransactions.get(position).getDateString());
+
+//        colorRipple(rowView, R.color.ghostwhite, R.color.auburn);
+
+        rowView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                RippleDrawable background = (RippleDrawable) view.findViewById(R.id.relative_layout).getBackground();
+                background.setHotspot(motionEvent.getX(), motionEvent.getY());
+                return view.onTouchEvent(motionEvent);
+            }
+        });
 
         return rowView;
     }

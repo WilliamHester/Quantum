@@ -138,8 +138,10 @@ public class BudgetSetupFragment extends Fragment {
 					data.createBudget(name, budget, budget, 0, interval,
 							Budget.getCurrentInterval(interval), subInterval);
 					data.close();
-					BudgetActivity.notFirstTime();
 					Intent i = new Intent(getActivity(), BudgetActivity.class);
+                    Bundle args = new Bundle();
+                    args.putBoolean(BudgetActivity.FIRST_TIME, false);
+                    i.putExtras(args);
 					i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 					startActivity(i);
 				} else if (!numberIsValid(budgetValue.getText().toString())) {

@@ -16,6 +16,7 @@
     <color name="transparent_white">#66ffffff</color>
     <color name="orangeish">#dd550c</color>
     <color name="auburn">#f68026</color>
+    <color name="auburn_dark">#dd550c</color>
     <color name="transparent_orangeish">#66dd550c</color>
     
 </resources>

@@ -7,7 +7,7 @@
         android:theme="@style/Theme.Quantum"
         android:allowBackup="true" >
         <activity
-            android:name=".ui.activities.BudgetActivity2"
+            android:name=".ui.activities.BudgetActivity"
             android:label="@string/app_name"
             android:windowSoftInputMode="adjustNothing">
             <!--android:screenOrientation="portrait">-->
@@ -32,14 +32,6 @@
                 android:value="me.williamhester.MainActivity"
                 />
         </activity>
-        <!--<activity-->
-            <!--android:name=".BudgetActivity2"-->
-            <!--android:screenOrientation="portrait">-->
-            <!--<meta-data-->
-                <!--android:name="android.support.PARENT_ACTIVITY"-->
-                <!--android:value="me.williamhester.MainActivity"-->
-                <!--/>-->
-        <!--</activity>-->
     </application>
 
 </manifest>

@@ -63,7 +63,7 @@ public class TransactionCreatorDialogFragment extends DialogFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setStyle(STYLE_NO_TITLE, android.R.style.Theme_Holo_Light_Dialog);
+        setStyle(STYLE_NO_TITLE, android.R.style.Theme_Material_Dialog);
         if (mTransaction == null) {
             mTransaction = new Transaction(0, "", "", "");
             // Set the id of the transaction to -1 in the case that we created a new

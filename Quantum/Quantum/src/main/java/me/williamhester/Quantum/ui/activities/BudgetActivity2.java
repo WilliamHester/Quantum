@@ -80,6 +80,9 @@ public class BudgetActivity2 extends Activity implements
         if (mPrefs.getBoolean(FIRST_TIME, true)) {
             Intent i = new Intent(this, WelcomeActivity.class);
             startActivity(i);
+        } else {
+            setActionBarCustomView();
+            setUpBudgetDrawer();
         }
 
         mAction = getActionBar();
@@ -91,9 +94,6 @@ public class BudgetActivity2 extends Activity implements
         }
 
         mViewPager = (ViewPager) findViewById(R.id.view_pager);
-
-        setActionBarCustomView();
-        setUpBudgetDrawer();
     }
 
     private void setUpBudgetDrawer() {
@@ -190,7 +190,9 @@ public class BudgetActivity2 extends Activity implements
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         // Sync the toggle state after onRestoreInstanceState has occurred.
-        mDrawerToggle.syncState();
+        if (mDrawerToggle != null) {
+            mDrawerToggle.syncState();
+        }
     }
 
     @Override

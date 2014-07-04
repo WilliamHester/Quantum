@@ -1,15 +1,20 @@
 package me.williamhester.Quantum.ui.fragments;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.RippleDrawable;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -20,6 +25,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import me.williamhester.Quantum.datasources.BudgetDataSource;
@@ -37,6 +43,7 @@ import me.williamhester.Quantum.datasources.TransactionDataSource;
 import me.williamhester.Quantum.models.Budget;
 import me.williamhester.Quantum.ui.activities.SettingsContainerActivity;
 
+@SuppressLint("Override") // TODO: remove this later
 public class BudgetFragment extends Fragment {
 
     public final static String BUDGET_POSITION_IN_LIST = "budgetPositionInList";
@@ -46,12 +53,13 @@ public class BudgetFragment extends Fragment {
     private BudgetViewer mBudgetViewer;
     private Context mContext;
     private DrawerToggle mDrawerToggle;
-    private List<Transaction> mTransactions;
+    private final List<Transaction> mTransactions = new ArrayList<Transaction>();
     private ListView mList;
     private TransactionArrayAdapter mTransactionAdapter;
 	private TextView mDollarsView, mCentsView;
     private View mNumbersHeader;
     private View mButtonsHeader;
+    private View mMoneyView;
 
     @Override
     public void onAttach(Activity activity) {
@@ -69,7 +77,7 @@ public class BudgetFragment extends Fragment {
 		super.onCreate(savedInstanceState);
         Bundle args = getArguments();
         if (savedInstanceState != null) {
-            mBudgetPosition = savedInstanceState.getInt(BUDGET_POSITION_IN_LIST, 0);
+            mBudgetPosition = savedInstanceState.getInt(BUDGET_POSITION_IN_LIST, -1);
         } else if (args != null) {
             mBudgetPosition = args.getInt(BUDGET_POSITION_IN_LIST);
         } else {
@@ -84,7 +92,8 @@ public class BudgetFragment extends Fragment {
 
 		TransactionDataSource trans = new TransactionDataSource(getActivity(), mBudget.getId());
 		trans.open();
-		mTransactions = trans.getAllTransactionsReverse();
+        mTransactions.clear();
+		mTransactions.addAll(trans.getAllTransactionsReverse());
 		trans.close();
 
         if (getActivity() != null && getActivity().getActionBar() != null) {
@@ -96,7 +105,7 @@ public class BudgetFragment extends Fragment {
 
         mContext = getActivity();
 
-//        setHasOptionsMenu(true);
+        setHasOptionsMenu(true);
 	}
 
 	@Override
@@ -105,22 +114,27 @@ public class BudgetFragment extends Fragment {
 		View view = inflater.inflate(R.layout.budget_fragment_2, container, false);
 
         mList = (ListView) view.findViewById(R.id.transactions);
-        mNumbersHeader = view.findViewById(R.id.budget_amount);
-        mButtonsHeader = view.findViewById(R.id.buttons_row);
+        View header = inflater.inflate(R.layout.header_budget_fragment, null);
 
+        mNumbersHeader = header.findViewById(R.id.budget_amount);
+        mButtonsHeader = header.findViewById(R.id.buttons_row);
         mDollarsView = (TextView) mNumbersHeader.findViewById(R.id.dollars_view);
         mCentsView = (TextView) mNumbersHeader.findViewById(R.id.cents_view);
+
+        mList.addHeaderView(header);
+        mList.setHeaderDividersEnabled(false);
         mTransactionAdapter = new TransactionArrayAdapter(mContext, mTransactions);
+        mList.setAdapter(mTransactionAdapter);
         setOnClicks();
         setFonts();
 		return view;
 	}
 
-//    @Override
-//    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-//        inflater.inflate(R.menu.budget_fragment_menu, menu);
-//        super.onCreateOptionsMenu(menu, inflater);
-//    }
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.budget_fragment_menu, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -185,7 +199,8 @@ public class BudgetFragment extends Fragment {
     public void loadList() {
         TransactionDataSource trans = new TransactionDataSource(getActivity(), mBudget.getId());
         trans.open();
-        mTransactions = trans.getAllTransactionsReverse();
+        mTransactions.clear();
+        mTransactions.addAll(trans.getAllTransactionsReverse());
         trans.close();
     }
 
@@ -206,12 +221,15 @@ public class BudgetFragment extends Fragment {
     }
 
     private void setOnClicks() {
-    	mDollarsView.setOnClickListener(new OnClickListener() {
-			public void onClick(View view) {
-				editBudget();
-			}
-            	});
-    	mCentsView.setOnClickListener(new OnClickListener() {
+        mNumbersHeader.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                RippleDrawable background = (RippleDrawable) view.findViewById(R.id.numbers_holder).getBackground();
+                background.setHotspot(motionEvent.getX(), motionEvent.getY());
+                return mNumbersHeader.onTouchEvent(motionEvent);
+            }
+        });
+    	mNumbersHeader.setOnClickListener(new OnClickListener() {
             public void onClick(View view) {
                 editBudget();
             }

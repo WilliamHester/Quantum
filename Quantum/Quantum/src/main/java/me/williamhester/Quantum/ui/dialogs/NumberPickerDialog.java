@@ -51,7 +51,7 @@ public class NumberPickerDialog extends DialogFragment implements DialogInterfac
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setStyle(STYLE_NORMAL, android.R.style.Theme_Holo_Light_Dialog);
+        setStyle(STYLE_NORMAL, android.R.style.Theme_Material_Light_Dialog);
     }
 
     @Override

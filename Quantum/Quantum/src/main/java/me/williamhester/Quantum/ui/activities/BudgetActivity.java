@@ -49,7 +49,7 @@ public class BudgetActivity extends Activity implements
     private List<Budget> mBudgets;
     private ListView mDrawerList;
     private String mBudgetName;
-    private TabView mTabView;
+//    private TabView mTabView;
     private ViewPager mViewPager;
 
     private int mBudgetIndex;
@@ -68,12 +68,25 @@ public class BudgetActivity extends Activity implements
             mViewPagerIndex = 0;
         }
 
+        mPrefs = getSharedPreferences("preferences", MODE_PRIVATE);
+
+        Bundle args = getIntent().getExtras();
+        Boolean isFirstTime;
+        if (args != null && !args.getBoolean(FIRST_TIME, true)) {
+            notFirstTime();
+            isFirstTime = false;
+        } else {
+            isFirstTime = true;
+        }
+
         setContentView(R.layout.container);
 
-        mPrefs = getSharedPreferences("preferences", MODE_PRIVATE);
-        if (mPrefs.getBoolean(FIRST_TIME, true)) {
+        if (!isFirstTime || mPrefs.getBoolean(FIRST_TIME, true)) {
     		Intent i = new Intent(this, WelcomeActivity.class);
     		startActivity(i);
+        } else {
+            setUpBudgetDrawer();
+            loadBudgets();
         }
 
         mAction = getActionBar();
@@ -88,7 +101,6 @@ public class BudgetActivity extends Activity implements
 
         mViewPager = (ViewPager) findViewById(R.id.view_pager);
 
-        setUpBudgetDrawer();
     }
 
     private void setUpBudgetDrawer() {
@@ -184,32 +196,34 @@ public class BudgetActivity extends Activity implements
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         // Sync the toggle state after onRestoreInstanceState has occurred.
-        mDrawerToggle.syncState();
+        if (mDrawerToggle != null) {
+            mDrawerToggle.syncState();
+        }
     }
 
     @Override
     public void onResume() {
         super.onResume();
         mAction.show();
-        loadBudgets();
         if (mBudgets.size() > 0) {
             checkForRollover();
             loadData();
         }
     }
 
-    @Override
-    public boolean onPrepareOptionsMenu(Menu menu) {
-        // If the nav drawer is open, hide action items related to the content view
-        boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
-        try {
-            menu.findItem(R.id.budget_management).setVisible(!drawerOpen);
-            menu.findItem(R.id.add_new_budget).setVisible(drawerOpen);
-        } catch (NullPointerException e) {
-            Log.e("NPE_TAG", "NullPointerException at onPrepareOptionsMenu");
-        }
-        return super.onPrepareOptionsMenu(menu);
-    }
+//    @Override
+//    public boolean onPrepareOptionsMenu(Menu menu) {
+//        // If the nav drawer is open, hide action items related to the content view
+//        boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
+//        try {
+//            menu.findItem(R.id.budget_management).setVisible(!drawerOpen);
+//            menu.findItem(R.id.add_new_budget).setVisible(drawerOpen);
+//        } catch (NullPointerException e) {
+//            Log.e("NPE_TAG", "NullPointerException at onPrepareOptionsMenu");
+//        }
+//        return super.onPrepareOptionsMenu(menu);
+//    }
+
     @Override
      public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
@@ -256,7 +270,7 @@ public class BudgetActivity extends Activity implements
         mBudgetName = mBudgets.get(mBudgetIndex).getName();
     }
     
-    public static void notFirstTime() {
+    private void notFirstTime() {
     	SharedPreferences.Editor edit = mPrefs.edit();
     	edit.putBoolean(FIRST_TIME, false);
     	edit.commit();
