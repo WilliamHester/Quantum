@@ -37,7 +37,7 @@
 
     </LinearLayout>
 
-    <me.williamhester.Quantum.MoneyPickerView
+    <me.williamhester.Quantum.ui.views.MoneyPickerView
         android:id="@+id/money_picker_view"
         android:layout_height="wrap_content"
         android:layout_width="fill_parent"

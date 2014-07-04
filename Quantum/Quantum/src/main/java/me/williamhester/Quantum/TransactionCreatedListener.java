@@ -1,5 +1,7 @@
 package me.williamhester.Quantum;
 
+import me.williamhester.Quantum.models.Transaction;
+
 /**
  * Created by William on 3/18/14.
  */

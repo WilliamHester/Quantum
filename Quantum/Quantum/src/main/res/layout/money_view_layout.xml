@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:orientation="horizontal" >
-        <me.williamhester.Quantum.MoneyView
+        <me.williamhester.Quantum.ui.views.MoneyView
             android:id="@+id/money_text"
             android:layout_width="0dip"
             android:layout_weight="4"
@@ -76,7 +76,7 @@
             	style="@style/medium_light"
             	android:textColor="@color/dark_gray"
             	android:textIsSelectable="false" />
-        </me.williamhester.Quantum.MoneyView>
+        </me.williamhester.Quantum.ui.views.MoneyView>
         <ImageButton
             android:id="@+id/delete"
             android:layout_width="0dip"

@@ -1,5 +1,7 @@
 package me.williamhester.Quantum;
 
+import me.williamhester.Quantum.models.Budget;
+
 public class BudgetViewer {
 
 	public final static int RED = -1, NORMAL = 1;
