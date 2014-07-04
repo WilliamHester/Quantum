@@ -1,6 +1,7 @@
 package me.williamhester.Quantum;
 
 import android.app.ActionBar;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -10,12 +11,10 @@ import android.content.res.Configuration;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
 import android.view.Gravity;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -32,7 +31,7 @@ import java.util.List;
 /**
  * Created by William on 1/26/14.
  */
-public class BudgetActivity2 extends FragmentActivity implements
+public class BudgetActivity2 extends Activity implements
         BudgetCreatorDialogFragment.OnCreateNewBudget, DrawerToggle {
 
     public final static String FIRST_TIME = "First time";
