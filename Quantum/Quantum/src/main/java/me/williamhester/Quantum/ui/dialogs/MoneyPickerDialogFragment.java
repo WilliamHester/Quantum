@@ -27,7 +27,7 @@ public class MoneyPickerDialogFragment extends DialogFragment {
     @Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setStyle(DialogFragment.STYLE_NO_TITLE, android.R.style.Theme_Material_Light_Dialog);
+		setStyle(DialogFragment.STYLE_NO_TITLE, R.style.Theme_Quantum_Dialog);
 	}
 	
 	@Override

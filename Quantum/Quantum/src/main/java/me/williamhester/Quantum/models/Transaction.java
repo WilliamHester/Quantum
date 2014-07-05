@@ -2,11 +2,14 @@ package me.williamhester.Quantum.models;
 
 import android.database.Cursor;
 
+import java.io.Serializable;
 import java.util.Calendar;
 
-public class Transaction {
-	
-	private int mDayOfMonth, mMonth, mYear, mWeekOfYear, mHour, mMinutes, mValue, mDayOfYear;
+public class Transaction implements Serializable {
+
+    private static final long serialVersionUID = 3721121028669990734L;
+
+    private int mDayOfMonth, mMonth, mYear, mWeekOfYear, mHour, mMinutes, mValue, mDayOfYear;
     private String mType, mLocationName, mMemo;
     private long mId;
 

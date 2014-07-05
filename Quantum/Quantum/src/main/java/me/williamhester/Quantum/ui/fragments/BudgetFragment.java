@@ -31,20 +31,20 @@ import java.util.List;
 import me.williamhester.Quantum.datasources.BudgetDataSource;
 import me.williamhester.Quantum.BudgetViewer;
 import me.williamhester.Quantum.DrawerToggle;
+import me.williamhester.Quantum.ui.dialogs.BudgetCreatorDialogFragment;
 import me.williamhester.Quantum.ui.dialogs.MoneyPickerDialogFragment;
 import me.williamhester.Quantum.ui.dialogs.MoneyPickerDialogFragment.MoneyPickerDialogHandler;
 import me.williamhester.Quantum.R;
-import me.williamhester.Quantum.ui.views.TabView;
 import me.williamhester.Quantum.models.Transaction;
 import me.williamhester.Quantum.ui.adapters.TransactionArrayAdapter;
-import me.williamhester.Quantum.TransactionCreatedListener;
 import me.williamhester.Quantum.ui.dialogs.TransactionCreatorDialogFragment;
 import me.williamhester.Quantum.datasources.TransactionDataSource;
 import me.williamhester.Quantum.models.Budget;
 import me.williamhester.Quantum.ui.activities.SettingsContainerActivity;
 
 @SuppressLint("Override") // TODO: remove this later
-public class BudgetFragment extends Fragment {
+public class BudgetFragment extends Fragment implements
+        TransactionCreatorDialogFragment.TransactionCreatedListener {
 
     public final static String BUDGET_POSITION_IN_LIST = "budgetPositionInList";
 
@@ -53,13 +53,12 @@ public class BudgetFragment extends Fragment {
     private BudgetViewer mBudgetViewer;
     private Context mContext;
     private DrawerToggle mDrawerToggle;
+    private Fragment mThis = this;
     private final List<Transaction> mTransactions = new ArrayList<Transaction>();
     private ListView mList;
     private TransactionArrayAdapter mTransactionAdapter;
-	private TextView mDollarsView, mCentsView;
     private View mNumbersHeader;
     private View mButtonsHeader;
-    private View mMoneyView;
 
     @Override
     public void onAttach(Activity activity) {
@@ -98,7 +97,7 @@ public class BudgetFragment extends Fragment {
 
         if (getActivity() != null && getActivity().getActionBar() != null) {
             getActivity().getActionBar().setDisplayHomeAsUpEnabled(true);
-            setActionBarTitle(mBudget.toString());
+            getActivity().setTitle(mBudget.toString());
         }
 
         mBudgetViewer = new BudgetViewer(mBudget);
@@ -118,8 +117,6 @@ public class BudgetFragment extends Fragment {
 
         mNumbersHeader = header.findViewById(R.id.budget_amount);
         mButtonsHeader = header.findViewById(R.id.buttons_row);
-        mDollarsView = (TextView) mNumbersHeader.findViewById(R.id.dollars_view);
-        mCentsView = (TextView) mNumbersHeader.findViewById(R.id.cents_view);
 
         mList.addHeaderView(header);
         mList.setHeaderDividersEnabled(false);
@@ -240,7 +237,7 @@ public class BudgetFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 TransactionCreatorDialogFragment fragment =
-                        new TransactionCreatorDialogFragment(mBudget.getId(), transactionCallback);
+                        TransactionCreatorDialogFragment.newInstance(mBudget.getId(), mThis);
                 fragment.show(getFragmentManager(), "TransactionCreatorDialogFragment");
             }
         });
@@ -256,8 +253,8 @@ public class BudgetFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 TransactionCreatorDialogFragment tranCreator
-                        = new TransactionCreatorDialogFragment(mBudget.getId(),
-                        (Transaction) adapterView.getItemAtPosition(i), transactionCallback);
+                        = TransactionCreatorDialogFragment.newInstance(mBudget.getId(),
+                        (Transaction) adapterView.getItemAtPosition(i), mThis);
                 tranCreator.show(getFragmentManager(), "TransactionEditor");
             }
         });
@@ -308,65 +305,42 @@ public class BudgetFragment extends Fragment {
         viewCents.setAlpha(opacity);
     }
 
-    private TransactionCreatedListener transactionCallback = new TransactionCreatedListener() {
+    @Override
+    public void onCreateTransaction(Transaction transaction) {
+        mBudget.budgetEdit(transaction.getValue());
+        updateDisplayedBudget();
+        mTransactions.add(transaction);
+        mTransactionAdapter.notifyDataSetChanged();
+    }
 
-        @Override
-        public void onCreateTransaction(Transaction transaction) {
-            mBudget.budgetEdit(transaction.getValue());
-            updateDisplayedBudget();
-            mTransactions.add(transaction);
-            mTransactionAdapter.notifyDataSetChanged();
-        }
+    @Override
+    public void onDeleteTransaction(Transaction transaction) {
+        mBudget.budgetEdit(transaction.getValue() * -1);
+        updateDisplayedBudget();
+        mTransactions.remove(transaction);
+        mTransactionAdapter.notifyDataSetChanged();
+    }
 
-        @Override
-        public void onDeleteTransaction(Transaction transaction) {
-            mBudget.budgetEdit(transaction.getValue() * -1);
-            updateDisplayedBudget();
-            mTransactions.remove(transaction);
-            mTransactionAdapter.notifyDataSetChanged();
-        }
-
-        @Override
-        public void onEditTransaction(Transaction transaction, int changed, Object changedObject) {
-            switch (changed) {
-                case TRANSACTION_VALUE:
-                    mBudget.budgetEdit(-1 * (Integer) changedObject);
-                    updateDisplayedBudget();
-                    mTransactions.get(mTransactions.indexOf(transaction))
-                            .setValue(transaction.getValue());
-                    mTransactionAdapter.notifyDataSetChanged();
-                    break;
-                case TRANSACTION_LOCATION:
-                    mTransactions.get(mTransactions.indexOf(transaction))
-                            .setLocation((String) changedObject);
-                    mTransactionAdapter.notifyDataSetChanged();
-                    break;
-                case TRANSACTION_MEMO:
-                    mTransactions.get(mTransactions.indexOf(transaction))
-                            .setMemo((String) changedObject);
-                    mTransactionAdapter.notifyDataSetChanged();
-                    break;
-            }
-        }
-    };
-
-    private void setActionBarTitle(String title) {
-        // Temporary disabling
-        if (false) {
-        if (getActivity() != null) {
-            LayoutInflater inflater = (LayoutInflater)
-                    getActivity().getSystemService(getActivity().LAYOUT_INFLATER_SERVICE);
-            View v = inflater.inflate(R.layout.titleview, null);
-//            TextView titleView = (TextView) v.findViewById(R.id.title);
-//            Typeface slabReg =
-//                    Typeface.createFromAsset(getActivity().getAssets(), "fonts/RobotoSlab-Regular.ttf");
-//            titleView.setTypeface(slabReg);
-//            titleView.setText(title);
-            TabView tabs = (TabView) v.findViewById(R.id.tabs);
-            if (getActivity().getActionBar() != null) {
-                getActivity().getActionBar().setCustomView(v);
-            }
-        }
+    @Override
+    public void onEditTransaction(Transaction transaction, int changed, Object changedObject) {
+        switch (changed) {
+            case TRANSACTION_VALUE:
+                mBudget.budgetEdit(-1 * (Integer) changedObject);
+                updateDisplayedBudget();
+                mTransactions.get(mTransactions.indexOf(transaction))
+                        .setValue(transaction.getValue());
+                mTransactionAdapter.notifyDataSetChanged();
+                break;
+            case TRANSACTION_LOCATION:
+                mTransactions.get(mTransactions.indexOf(transaction))
+                        .setLocation((String) changedObject);
+                mTransactionAdapter.notifyDataSetChanged();
+                break;
+            case TRANSACTION_MEMO:
+                mTransactions.get(mTransactions.indexOf(transaction))
+                        .setMemo((String) changedObject);
+                mTransactionAdapter.notifyDataSetChanged();
+                break;
         }
     }
 }

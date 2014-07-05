@@ -38,18 +38,21 @@ public class BudgetPreferenceFragment extends PreferenceFragment {
     private Preference mChangeDayOfMonth;
     private Budget mBudget;
 
-    /**
-     * Instantiates a BudgetPreferenceFragment
-     *
-     * @param id the Id of the Budget to be manipulated.
-     */
-    public BudgetPreferenceFragment(long id) {
-        mId = id;
+    public static BudgetPreferenceFragment newInstance(long id) {
+        Bundle args = new Bundle();
+        args.putLong("id", id);
+        BudgetPreferenceFragment fragment = new BudgetPreferenceFragment();
+        fragment.setArguments(args);
+        return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if (getArguments() != null) {
+            mId = getArguments().getLong("id");
+        }
 
         BudgetDataSource data = new BudgetDataSource(getActivity());
         data.open();
@@ -58,7 +61,7 @@ public class BudgetPreferenceFragment extends PreferenceFragment {
 
         if (getActivity().getActionBar() != null) {
             getActivity().getActionBar().setDisplayHomeAsUpEnabled(true);
-            setActionBarTitle(mBudget.toString() + " Settings");
+            getActivity().setTitle(mBudget.toString() + " Settings");
         }
 
         loadPrefs();
@@ -129,7 +132,7 @@ public class BudgetPreferenceFragment extends PreferenceFragment {
                     data.setBudgetName(mBudget.getId(), text.trim());
                     data.close();
                     try {
-                        getActivity().getActionBar().setTitle(text.trim() + " Settings");
+                        getActivity().setTitle(text.trim() + " Settings");
                     } catch (NullPointerException e) {
                         Log.e("NPE", "Could not find activity or ActionBar");
                     }

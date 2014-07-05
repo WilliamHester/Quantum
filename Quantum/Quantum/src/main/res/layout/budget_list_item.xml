@@ -4,18 +4,20 @@
     android:layout_height="wrap_content"
     android:background="@color/ghostwhite" >
     <LinearLayout
-          android:orientation="vertical"
-          android:layout_width="match_parent"
-          android:layout_height="match_parent"
-          android:background="@drawable/item_background_orange">
-                <TextView
-                    android:padding="8dp"
-                    android:id="@+id/budget_name"
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:textSize="32sp"
-                    android:ellipsize="end"
-                    android:text="Budget Name"
-                    android:textColor="@color/dark_gray"/>
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/ripple_background">
+
+        <TextView
+            android:padding="8dp"
+            android:id="@+id/budget_name"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="32sp"
+            android:ellipsize="end"
+            android:text="Budget Name"
+            android:textColor="@color/dark_gray"/>
+
     </LinearLayout>
 </FrameLayout>

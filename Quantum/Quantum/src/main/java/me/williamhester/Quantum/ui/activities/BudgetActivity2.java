@@ -30,7 +30,7 @@ import java.util.List;
 
 import me.williamhester.Quantum.models.Budget;
 import me.williamhester.Quantum.ui.adapters.BudgetArrayAdapter;
-import me.williamhester.Quantum.ui.fragments.BudgetCreatorDialogFragment;
+import me.williamhester.Quantum.ui.dialogs.BudgetCreatorDialogFragment;
 import me.williamhester.Quantum.datasources.BudgetDataSource;
 import me.williamhester.Quantum.ui.fragments.BudgetFragment;
 import me.williamhester.Quantum.DrawerToggle;

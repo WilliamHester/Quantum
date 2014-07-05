@@ -1,6 +1,5 @@
 package me.williamhester.Quantum.ui.activities;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.KeyEvent;
 
@@ -10,7 +9,7 @@ import me.williamhester.Quantum.R;
 /**
  * Created by William on 12/2/13.
  */
-public class SettingsContainerActivity extends Activity {
+public class SettingsContainerActivity extends BaseActivity {
 
     public static String BUDGET_ID = "BUDGET ID";
 
@@ -20,14 +19,10 @@ public class SettingsContainerActivity extends Activity {
         setContentView(R.layout.container_activity);
         Bundle extras = getIntent().getExtras();
         long id = extras.getLong(BUDGET_ID);
-        BudgetPreferenceFragment prefs = new BudgetPreferenceFragment(id);
+        BudgetPreferenceFragment prefs = BudgetPreferenceFragment.newInstance(id);
         getFragmentManager().beginTransaction()
                 .replace(R.id.container, prefs)
                 .commit();
-        if (getActionBar() != null) {
-            getActionBar().setDisplayShowCustomEnabled(true);
-            getActionBar().setDisplayShowTitleEnabled(false);
-        }
     }
 
     @Override

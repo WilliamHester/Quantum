@@ -1,8 +1,11 @@
 package me.williamhester.Quantum.ui.dialogs;
 
+import android.app.Activity;
 import android.app.DialogFragment;
+import android.app.Fragment;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,15 +13,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import me.williamhester.Quantum.ui.fragments.BudgetFragment;
 import me.williamhester.Quantum.ui.views.MoneyPickerView;
 import me.williamhester.Quantum.R;
 import me.williamhester.Quantum.models.Transaction;
-import me.williamhester.Quantum.TransactionCreatedListener;
 import me.williamhester.Quantum.datasources.BudgetDataSource;
 import me.williamhester.Quantum.datasources.TransactionDataSource;
 
 /**
  * Created by William on 12/2/13.
+ *
  */
 public class TransactionCreatorDialogFragment extends DialogFragment {
 
@@ -36,40 +40,56 @@ public class TransactionCreatorDialogFragment extends DialogFragment {
     private String mInitialMemo;
     private String mInitialLocation;
 
-    /**
-     * Creates a new fragment to make a transaction
-     *
-     * @param budgetId the Id of the buget that the transaction is being created for
-     * @param callback the trigger to update the fragment.
-     */
-    public TransactionCreatorDialogFragment(long budgetId, TransactionCreatedListener callback) {
-        mCallback = callback;
-        mBudgetId = budgetId;
-        mInitialDollars = 0;
-        mInitialMemo = "";
-        mInitialLocation = "";
+    public static TransactionCreatorDialogFragment newInstance(long budgetId, Fragment target) {
+        return newInstance(budgetId, null, target);
     }
 
-    public TransactionCreatorDialogFragment(long budgetId, Transaction t,
-                                            TransactionCreatedListener callback) {
-        mCallback = callback;
-        mBudgetId = budgetId;
-        mTransaction = t;
-        mInitialDollars = t.getValue();
-        mInitialMemo = t.getMemo();
-        mInitialLocation = t.getLocationName();
+    public static TransactionCreatorDialogFragment newInstance(long budgetId, Transaction t, Fragment target) {
+        Bundle args = new Bundle();
+        args.putLong("budgetId", budgetId);
+        args.putSerializable("transaction", t);
+        TransactionCreatorDialogFragment fragment = new TransactionCreatorDialogFragment();
+        fragment.setArguments(args);
+        fragment.setTargetFragment(target, 0);
+        return fragment;
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+
+        if (getTargetFragment() != null) {
+            try {
+                mCallback = (TransactionCreatedListener) getTargetFragment();
+            } catch (ClassCastException e) {
+                Log.e("TransactionCreatorDialogFragment", "Error: host must " +
+                        "implement TransactionCreatedListener");
+            }
+        }
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setStyle(STYLE_NO_TITLE, android.R.style.Theme_Material_Dialog);
-        if (mTransaction == null) {
-            mTransaction = new Transaction(0, "", "", "");
-            // Set the id of the transaction to -1 in the case that we created a new
-            // Transaction, so we know that in order to assign the value, we need to write
-            // the transaction to a database.
-            mTransaction.setId(-1);
+        setStyle(STYLE_NO_TITLE, R.style.Theme_Quantum_Dialog);
+
+        if (getArguments() != null) {
+            mBudgetId = getArguments().getLong("budgetId");
+            mTransaction = (Transaction) getArguments().getSerializable("transaction");
+            if (mTransaction != null) {
+                mInitialDollars = mTransaction.getValue();
+                mInitialMemo = mTransaction.getMemo();
+                mInitialLocation = mTransaction.getLocationName();
+            } else {
+                mTransaction = new Transaction(0, "", "", "");
+                // Set the id of the transaction to -1 in the case that we created a new
+                // Transaction, so we know that in order to assign the value, we need to write
+                // the transaction to a database.
+                mTransaction.setId(-1);
+                mInitialDollars = 0;
+                mInitialMemo = "";
+                mInitialLocation = "";
+            }
         }
     }
 
@@ -97,6 +117,10 @@ public class TransactionCreatorDialogFragment extends DialogFragment {
         mMemo.setText(mTransaction.getMemo());
         mMoneyPicker.setValue(mTransaction.getValue());
         mMoneyPicker.updateView();
+
+        if (mTransaction.getId() == -1) {
+            mDelete.setVisibility(View.GONE);
+        }
 
         return v;
     }
@@ -179,6 +203,18 @@ public class TransactionCreatorDialogFragment extends DialogFragment {
                     - (mMoneyPicker.getValue() - mInitialDollars));
             data.close();
         }
+    }
+
+    public interface TransactionCreatedListener {
+
+        public static final int TRANSACTION_VALUE = 0;
+        public static final int TRANSACTION_LOCATION = 1;
+        public static final int TRANSACTION_MEMO = 2;
+
+        public void onCreateTransaction(Transaction transaction);
+        public void onDeleteTransaction(Transaction transaction);
+        public void onEditTransaction(Transaction transaction, int changed, Object changedObject);
+
     }
 
 }
